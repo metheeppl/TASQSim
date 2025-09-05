@@ -55,10 +55,10 @@ namespace TASQSim
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.dgwMeterQAll = new System.Windows.Forms.DataGridView();
             this.mETERIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,6 +104,7 @@ namespace TASQSim
             this.btnRst = new System.Windows.Forms.Button();
             this.btnL100 = new System.Windows.Forms.Button();
             this.btnL04 = new System.Windows.Forms.Button();
+            this.tbStep = new System.Windows.Forms.TextBox();
             this.tbCard = new System.Windows.Forms.TextBox();
             this.bAYIDTextBox = new System.Windows.Forms.TextBox();
             this.dESCRIPTIONTextBox = new System.Windows.Forms.TextBox();
@@ -560,6 +561,7 @@ namespace TASQSim
             this.panelTop.Controls.Add(this.btnRst);
             this.panelTop.Controls.Add(this.btnL100);
             this.panelTop.Controls.Add(this.btnL04);
+            this.panelTop.Controls.Add(this.tbStep);
             this.panelTop.Controls.Add(this.tbCard);
             this.panelTop.Controls.Add(bAYIDLabel);
             this.panelTop.Controls.Add(this.bAYIDTextBox);
@@ -713,6 +715,7 @@ namespace TASQSim
             // 
             // bsMeterQAll
             // 
+            this.bsMeterQAll.AllowNew = false;
             this.bsMeterQAll.DataMember = "T_METER_Q";
             this.bsMeterQAll.DataSource = this.dsSim;
             // 
@@ -732,6 +735,7 @@ namespace TASQSim
             // 
             // bsMeterQ
             // 
+            this.bsMeterQ.AllowNew = false;
             this.bsMeterQ.DataMember = "T_METER_Q";
             this.bsMeterQ.DataSource = this.dsSim;
             // 
@@ -1043,6 +1047,17 @@ namespace TASQSim
             this.btnL04.UseVisualStyleBackColor = true;
             this.btnL04.Click += new System.EventHandler(this.btnL04_Click);
             // 
+            // tbStep
+            // 
+            this.tbStep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbStep.Location = new System.Drawing.Point(438, 145);
+            this.tbStep.Name = "tbStep";
+            this.tbStep.ReadOnly = true;
+            this.tbStep.Size = new System.Drawing.Size(30, 20);
+            this.tbStep.TabIndex = 95;
+            this.tbStep.Text = "0";
+            this.tbStep.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // tbCard
             // 
             this.tbCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1163,6 +1178,7 @@ namespace TASQSim
             // 
             // bsQUEUE1
             // 
+            this.bsQUEUE1.AllowNew = false;
             this.bsQUEUE1.DataMember = "T_QUEUE";
             this.bsQUEUE1.DataSource = this.dsSim;
             // 
@@ -1208,6 +1224,7 @@ namespace TASQSim
             // 
             // bsDEVICEIO_W
             // 
+            this.bsDEVICEIO_W.AllowNew = false;
             this.bsDEVICEIO_W.DataMember = "DEVICEIO_W";
             this.bsDEVICEIO_W.DataSource = this.dsSim;
             // 
@@ -1365,9 +1382,9 @@ namespace TASQSim
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "LOGTIME";
-            dataGridViewCellStyle17.Format = "G";
-            dataGridViewCellStyle17.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Format = "G";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn3.HeaderText = "LOGTIME";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -1399,6 +1416,7 @@ namespace TASQSim
             // 
             // bsSQLOG
             // 
+            this.bsSQLOG.AllowNew = false;
             this.bsSQLOG.DataMember = "QUEUE_SQ_LOG";
             this.bsSQLOG.DataSource = this.dsSim;
             // 
@@ -1408,7 +1426,7 @@ namespace TASQSim
             this.tpgLSQLog.Location = new System.Drawing.Point(23, 4);
             this.tpgLSQLog.Name = "tpgLSQLog";
             this.tpgLSQLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgLSQLog.Size = new System.Drawing.Size(703, 538);
+            this.tpgLSQLog.Size = new System.Drawing.Size(717, 538);
             this.tpgLSQLog.TabIndex = 6;
             this.tpgLSQLog.Text = "Loading SQ";
             this.tpgLSQLog.UseVisualStyleBackColor = true;
@@ -1429,15 +1447,15 @@ namespace TASQSim
             this.dgwLSQLog.ReadOnly = true;
             this.dgwLSQLog.RowHeadersWidth = 10;
             this.dgwLSQLog.RowTemplate.Height = 18;
-            this.dgwLSQLog.Size = new System.Drawing.Size(697, 532);
+            this.dgwLSQLog.Size = new System.Drawing.Size(711, 532);
             this.dgwLSQLog.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "LOGTIME";
-            dataGridViewCellStyle18.Format = "G";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Format = "G";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn1.HeaderText = "LOGTIME";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1469,6 +1487,7 @@ namespace TASQSim
             // 
             // bsLSQLog
             // 
+            this.bsLSQLog.AllowNew = false;
             this.bsLSQLog.DataMember = "LOADING_SQ_LOG";
             this.bsLSQLog.DataSource = this.dsSim;
             // 
@@ -1478,7 +1497,7 @@ namespace TASQSim
             this.tpgIOLog2.Location = new System.Drawing.Point(23, 4);
             this.tpgIOLog2.Name = "tpgIOLog2";
             this.tpgIOLog2.Padding = new System.Windows.Forms.Padding(1);
-            this.tpgIOLog2.Size = new System.Drawing.Size(703, 538);
+            this.tpgIOLog2.Size = new System.Drawing.Size(717, 538);
             this.tpgIOLog2.TabIndex = 3;
             this.tpgIOLog2.Text = "IO Log";
             this.tpgIOLog2.UseVisualStyleBackColor = true;
@@ -1500,15 +1519,15 @@ namespace TASQSim
             this.dEVICEIO_LOG2DataGridView.ReadOnly = true;
             this.dEVICEIO_LOG2DataGridView.RowHeadersWidth = 10;
             this.dEVICEIO_LOG2DataGridView.RowTemplate.Height = 18;
-            this.dEVICEIO_LOG2DataGridView.Size = new System.Drawing.Size(701, 536);
+            this.dEVICEIO_LOG2DataGridView.Size = new System.Drawing.Size(715, 536);
             this.dEVICEIO_LOG2DataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.DataPropertyName = "LOGTIME";
-            dataGridViewCellStyle19.Format = "G";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Format = "G";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn25.HeaderText = "LOGTIME";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
@@ -1540,6 +1559,7 @@ namespace TASQSim
             // 
             // bsIOLog2
             // 
+            this.bsIOLog2.AllowNew = false;
             this.bsIOLog2.DataMember = "DEVICEIO_LOG2";
             this.bsIOLog2.DataSource = this.dsSim;
             // 
@@ -1550,7 +1570,7 @@ namespace TASQSim
             this.tpgIOLog.Location = new System.Drawing.Point(23, 4);
             this.tpgIOLog.Name = "tpgIOLog";
             this.tpgIOLog.Padding = new System.Windows.Forms.Padding(1);
-            this.tpgIOLog.Size = new System.Drawing.Size(703, 538);
+            this.tpgIOLog.Size = new System.Drawing.Size(717, 538);
             this.tpgIOLog.TabIndex = 1;
             this.tpgIOLog.Text = "OPCLink";
             this.tpgIOLog.UseVisualStyleBackColor = true;
@@ -1572,15 +1592,15 @@ namespace TASQSim
             this.dEVICEIO_LOGDataGridView.ReadOnly = true;
             this.dEVICEIO_LOGDataGridView.RowHeadersWidth = 10;
             this.dEVICEIO_LOGDataGridView.RowTemplate.Height = 18;
-            this.dEVICEIO_LOGDataGridView.Size = new System.Drawing.Size(701, 536);
+            this.dEVICEIO_LOGDataGridView.Size = new System.Drawing.Size(715, 536);
             this.dEVICEIO_LOGDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "LOGTIME";
-            dataGridViewCellStyle20.Format = "G";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Format = "G";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn21.HeaderText = "LOGTIME";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -1612,6 +1632,7 @@ namespace TASQSim
             // 
             // bsIOLog
             // 
+            this.bsIOLog.AllowNew = false;
             this.bsIOLog.DataMember = "DEVICEIO_LOG";
             this.bsIOLog.DataSource = this.dsSim;
             // 
@@ -1621,7 +1642,7 @@ namespace TASQSim
             this.tpgQ.Controls.Add(this.dgwQ);
             this.tpgQ.Location = new System.Drawing.Point(23, 4);
             this.tpgQ.Name = "tpgQ";
-            this.tpgQ.Size = new System.Drawing.Size(703, 538);
+            this.tpgQ.Size = new System.Drawing.Size(717, 538);
             this.tpgQ.TabIndex = 4;
             this.tpgQ.Text = "Queue";
             this.tpgQ.UseVisualStyleBackColor = true;
@@ -1656,7 +1677,7 @@ namespace TASQSim
             this.dgwQ.Name = "dgwQ";
             this.dgwQ.ReadOnly = true;
             this.dgwQ.RowHeadersWidth = 5;
-            this.dgwQ.Size = new System.Drawing.Size(703, 538);
+            this.dgwQ.Size = new System.Drawing.Size(717, 538);
             this.dgwQ.TabIndex = 2;
             // 
             // qIDDataGridViewTextBoxColumn
@@ -1801,7 +1822,7 @@ namespace TASQSim
             this.tpgORDER.Location = new System.Drawing.Point(23, 4);
             this.tpgORDER.Name = "tpgORDER";
             this.tpgORDER.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgORDER.Size = new System.Drawing.Size(703, 538);
+            this.tpgORDER.Size = new System.Drawing.Size(717, 538);
             this.tpgORDER.TabIndex = 5;
             this.tpgORDER.Text = "Order";
             this.tpgORDER.UseVisualStyleBackColor = true;
@@ -1845,7 +1866,7 @@ namespace TASQSim
             this.dgwO.Name = "dgwO";
             this.dgwO.ReadOnly = true;
             this.dgwO.RowHeadersWidth = 5;
-            this.dgwO.Size = new System.Drawing.Size(697, 532);
+            this.dgwO.Size = new System.Drawing.Size(711, 532);
             this.dgwO.TabIndex = 0;
             // 
             // oRDERIDDataGridViewTextBoxColumn
@@ -2050,6 +2071,7 @@ namespace TASQSim
             // 
             // bsORDERS_WEB
             // 
+            this.bsORDERS_WEB.AllowNew = false;
             this.bsORDERS_WEB.DataMember = "T_ORDERS_WEB";
             this.bsORDERS_WEB.DataSource = this.dsSim;
             // 
@@ -2058,7 +2080,7 @@ namespace TASQSim
             this.tpgCache.Controls.Add(this.dgwCache);
             this.tpgCache.Location = new System.Drawing.Point(23, 4);
             this.tpgCache.Name = "tpgCache";
-            this.tpgCache.Size = new System.Drawing.Size(703, 538);
+            this.tpgCache.Size = new System.Drawing.Size(717, 538);
             this.tpgCache.TabIndex = 7;
             this.tpgCache.Text = "WebCache";
             this.tpgCache.UseVisualStyleBackColor = true;
@@ -2089,7 +2111,7 @@ namespace TASQSim
             this.dgwCache.ReadOnly = true;
             this.dgwCache.RowHeadersWidth = 5;
             this.dgwCache.RowTemplate.ReadOnly = true;
-            this.dgwCache.Size = new System.Drawing.Size(703, 538);
+            this.dgwCache.Size = new System.Drawing.Size(717, 538);
             this.dgwCache.TabIndex = 0;
             // 
             // oRDERIDDataGridViewTextBoxColumn1
@@ -2181,6 +2203,7 @@ namespace TASQSim
             // 
             // bsORDERSCACHE
             // 
+            this.bsORDERSCACHE.AllowNew = false;
             this.bsORDERSCACHE.DataMember = "T_ORDERS_CACHE";
             this.bsORDERSCACHE.DataSource = this.dsSim;
             // 
@@ -2227,6 +2250,7 @@ namespace TASQSim
             // 
             // bsDEVICEIO_R
             // 
+            this.bsDEVICEIO_R.AllowNew = false;
             this.bsDEVICEIO_R.DataMember = "DEVICEIO_R";
             this.bsDEVICEIO_R.DataSource = this.dsSim;
             // 
@@ -2303,7 +2327,7 @@ namespace TASQSim
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TAS Q Simulator";
+            this.Text = "TAS Simulator";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
@@ -2532,6 +2556,7 @@ namespace TASQSim
         private System.Windows.Forms.DataGridViewTextBoxColumn vEHICLENAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rEGULATIONWEIGHTDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fULLTANKDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TextBox tbStep;
     }
 }
 
