@@ -96,22 +96,22 @@ namespace TASQSim
                 case 0:
                     if (!this.QUEUE_SQ_LOGDataGridView.Focused || bBypsFocusChk) this.taSQLOG.Fill(this.dsSim.QUEUE_SQ_LOG, this.iLogHrs);
                     break;
-                case 1:
+                case 4:
                     if (!this.dgwLSQLog.Focused || bBypsFocusChk) this.taLSQLog.Fill(this.dsSim.LOADING_SQ_LOG, this.iLogHrs);
                     break;
-                case 2:
+                case 5:
                     if (!this.dEVICEIO_LOG2DataGridView.Focused || bBypsFocusChk) this.taIOLog2.FillByHrs(this.dsSim.DEVICEIO_LOG2, this.iLogHrs);
                     break;
-                case 3:
+                case 6:
                     if (!this.dEVICEIO_LOGDataGridView.Focused || bBypsFocusChk) this.taIOLog.FillByHrs(this.dsSim.DEVICEIO_LOG, this.iLogHrs);
                     break;
-                case 4:
+                case 2:
                     if (!this.dgwQ.Focused || bBypsFocusChk) this.taQUEUE1.Fill(this.dsSim.T_QUEUE1);
                     break;
-                case 5:
+                case 3:
                     if (!this.dgwO.Focused || bBypsFocusChk) this.taORDERS_WEB.Fill(this.dsSim.T_ORDERS_WEB);
                     break;
-                case 6:
+                case 1:
                     if (!this.dgwCache.Focused || bBypsFocusChk) this.taORDERSCACHE.Fill(this.dsSim.T_ORDERS_CACHE);
                     break;
             }
@@ -128,12 +128,16 @@ namespace TASQSim
             if (this.tsSQ.Checked) RefreshLoadSQ();
             if (this.tsIO.Checked) RefreshIO();
             if (this.tsLog.Checked) RefreshTab();
+            if (!this.tbStatus.Text.Equals("LOADING")) this.chk1KLPM.Checked = false;
+            if (!this.tbStatus.Text.Equals("LOADING")) this.chk2KLPM.Checked = false;
+            if (this.chk1KLPM.Checked) IncIOVal(ION_WGH, 35);
+            if (this.chk2KLPM.Checked) IncIOVal(ION_WGH, 69);
             if (this.SQSTEP[(int)BAYID] == 0)
                 wait = 0;
             else
             {
                 wait++;
-                if (wait > 4)
+                if (wait > 3)
                     switch (this.SQSTEP[(int)BAYID])
                     {
                         case 1:
@@ -274,6 +278,7 @@ namespace TASQSim
 
         private void dgvDevIO_R_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            this.tsIO.Checked = false;
             if (this.bsDEVICEIO_R.Current != null)
             {
                 dsSIM.DEVICEIO_RRow drow = (dsSIM.DEVICEIO_RRow)(((DataRowView)(this.bsDEVICEIO_R.Current)).Row);
@@ -293,6 +298,8 @@ namespace TASQSim
             this.bAYIDToolStripTextBox.Text = ((iNextBay > iBayMax) ? 1 : iNextBay).ToString();
             try
             {
+                this.chk1KLPM.Checked = false;
+                this.chk2KLPM.Checked = false;
                 RefreshLoadSQ();
                 RefreshIO();
                 RefreshTab();
@@ -490,6 +497,10 @@ namespace TASQSim
         private void btnRst_Click(object sender, EventArgs e)
         {
             SetIOR("0", this.MTRDEVID, ION_WS);
+            sim_ta.BayInit(this.MTRDEVID);
+            sim_ta.SyncIO_ClearReq(this.MTRDEVID);
+            this.SetStep(0, (Button)sender);
+            SetIOR("0", this.MTRDEVID, "ET01");
         }
 
         private void btnL1000_Click(object sender, EventArgs e)
@@ -507,8 +518,19 @@ namespace TASQSim
 
         private void btnS1_Click(object sender, EventArgs e)// Card In
         {
-            SetIOR(this.tbCard.Text, this.MTRDEVID, ION_CARD);
-            this.SetStep(1, (Button)sender);
+            if(sim_ta.ReadIOR("ET01", this.MTRDEVID, this.MTRDEVID)==0)
+            { 
+                SetIOR(this.tbCard.Text, this.MTRDEVID, ION_CARD);
+                this.SetStep(1, (Button)sender);
+            }
+            else
+            { 
+                System.Windows.Forms.MessageBox.Show("Tare W. and Card In again after initialized");
+                sim_ta.BayInit(this.MTRDEVID);
+                sim_ta.SyncIO_ClearReq(this.MTRDEVID);
+                this.SetStep(0, btnS0);
+                SetIOR("0", this.MTRDEVID, "ET01");
+            }
         }
 
         private void btnS2_Click(object sender, EventArgs e)// Verify
@@ -573,6 +595,8 @@ namespace TASQSim
                     try
                     {
                         RefreshLoadSQ();
+                        this.chk1KLPM.Checked = false;
+                        this.chk2KLPM.Checked = false;
                         RefreshIO();
                         RefreshTab();
                     }
@@ -586,7 +610,65 @@ namespace TASQSim
 
         private void btnSTare_Click(object sender, EventArgs e)
         {
+            if (sim_ta.ReadIOR("ET01", this.MTRDEVID, this.MTRDEVID) > 0)
+            { 
+                sim_ta.BayInit(this.MTRDEVID);
+                sim_ta.SyncIO_ClearReq(this.MTRDEVID);
+                this.SetStep(0, btnS0);
+                SetIOR("0", this.MTRDEVID, "ET01");
+            }
             if (this.textBox2.Text.Trim().Length > 3) SetIOR(this.textBox2.Text, this.MTRDEVID, ION_WS);
+        }
+
+        private void btnSwMain_Click(object sender, EventArgs e)
+        {
+            SetIOR(((tbMain.Text.Equals("n")) ? "0" : "1"), this.MTRDEVID, "ENABLED");
+            RefreshIOR();
+            RefreshLoadSQ();
+        }
+
+        private void btnSwAuto_Click(object sender, EventArgs e)
+        {
+            string stmp = "update T_METER_Q set Q_AUTO='" + ((tbAuto.Text.Equals("n")) ? "y" : "n") + "' where METER_ID=" + this.BAYID.ToString();
+            OracleConnection orcn = this.taMETER_Q.Connection;
+            OracleCommand orcc = new OracleCommand(stmp);
+            orcc.Connection = orcn;
+            if (orcn.State != ConnectionState.Open) orcn.Open();
+            int rownum = orcc.ExecuteNonQuery();
+            RefreshLoadSQ();
+
+        }
+
+        private void btnSwDry_Click(object sender, EventArgs e)
+        {
+            string stmp = "update T_METER_Q set DRYRUN='" + ((tbDry.Text.Equals("n")) ? "y" : "n") + "' where METER_ID=" + this.BAYID.ToString();
+            OracleConnection orcn = this.taMETER_Q.Connection;
+            OracleCommand orcc = new OracleCommand(stmp);
+            orcc.Connection = orcn;
+            if (orcn.State != ConnectionState.Open) orcn.Open();
+            int rownum = orcc.ExecuteNonQuery();
+            RefreshLoadSQ();
+
+        }
+
+        private void tbCard_TextChanged(object sender, EventArgs e)
+        {
+            tsSQ.Checked = false;
+        }
+
+        private void btnL2K_Click(object sender, EventArgs e)
+        {
+            SimLoadProg(2000);
+        }
+
+        private void chk1KLPM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chk1KLPM.Checked) this.chk2KLPM.Checked = false;
+        }
+
+        private void chk2KLPM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chk2KLPM.Checked) this.chk1KLPM.Checked = false;
         }
     }
 }

@@ -5146,8 +5146,6 @@ namespace TASQSim {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class T_ORDERS_CACHEDataTable : global::System.Data.TypedTableBase<T_ORDERS_CACHERow> {
             
-            private global::System.Data.DataColumn columnORDER_ID;
-            
             private global::System.Data.DataColumn columnORDER_CODE;
             
             private global::System.Data.DataColumn columnCOMPANY;
@@ -5162,21 +5160,7 @@ namespace TASQSim {
             
             private global::System.Data.DataColumn columnDRIVER1;
             
-            private global::System.Data.DataColumn columnDRIVER2;
-            
-            private global::System.Data.DataColumn columnDRIVER3;
-            
-            private global::System.Data.DataColumn columnPRODUCT;
-            
             private global::System.Data.DataColumn columnQNTY;
-            
-            private global::System.Data.DataColumn columnCREATE_DATE;
-            
-            private global::System.Data.DataColumn columnAPPROVE_ID;
-            
-            private global::System.Data.DataColumn columnAPPROVE_NAME;
-            
-            private global::System.Data.DataColumn columnDESTINATION_ID;
             
             private global::System.Data.DataColumn columnDESTINATION_NAME;
             
@@ -5189,6 +5173,10 @@ namespace TASQSim {
             private global::System.Data.DataColumn columnREGULATIONWEIGHT;
             
             private global::System.Data.DataColumn columnFULLTANK;
+            
+            private global::System.Data.DataColumn columnQ_ID;
+            
+            private global::System.Data.DataColumn columnQ_STATUS;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -5221,14 +5209,6 @@ namespace TASQSim {
             protected T_ORDERS_CACHEDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ORDER_IDColumn {
-                get {
-                    return this.columnORDER_ID;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5289,65 +5269,9 @@ namespace TASQSim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DRIVER2Column {
-                get {
-                    return this.columnDRIVER2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DRIVER3Column {
-                get {
-                    return this.columnDRIVER3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PRODUCTColumn {
-                get {
-                    return this.columnPRODUCT;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn QNTYColumn {
                 get {
                     return this.columnQNTY;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CREATE_DATEColumn {
-                get {
-                    return this.columnCREATE_DATE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn APPROVE_IDColumn {
-                get {
-                    return this.columnAPPROVE_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn APPROVE_NAMEColumn {
-                get {
-                    return this.columnAPPROVE_NAME;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DESTINATION_IDColumn {
-                get {
-                    return this.columnDESTINATION_ID;
                 }
             }
             
@@ -5401,6 +5325,22 @@ namespace TASQSim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Q_IDColumn {
+                get {
+                    return this.columnQ_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Q_STATUSColumn {
+                get {
+                    return this.columnQ_STATUS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5437,7 +5377,6 @@ namespace TASQSim {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public T_ORDERS_CACHERow AddT_ORDERS_CACHERow(
-                        decimal ORDER_ID, 
                         string ORDER_CODE, 
                         string COMPANY, 
                         System.DateTime DATEARRIVE, 
@@ -5445,23 +5384,17 @@ namespace TASQSim {
                         string FRONT_LICENSE, 
                         string REAR_LICENSE, 
                         string DRIVER1, 
-                        string DRIVER2, 
-                        string DRIVER3, 
-                        string PRODUCT, 
                         decimal QNTY, 
-                        string CREATE_DATE, 
-                        decimal APPROVE_ID, 
-                        string APPROVE_NAME, 
-                        decimal DESTINATION_ID, 
                         string DESTINATION_NAME, 
                         decimal TAREWEIGHT, 
                         decimal MAXWEIGHT, 
                         string VEHICLE_NAME, 
                         decimal REGULATIONWEIGHT, 
-                        string FULLTANK) {
+                        string FULLTANK, 
+                        decimal Q_ID, 
+                        string Q_STATUS) {
                 T_ORDERS_CACHERow rowT_ORDERS_CACHERow = ((T_ORDERS_CACHERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ORDER_ID,
                         ORDER_CODE,
                         COMPANY,
                         DATEARRIVE,
@@ -5469,23 +5402,25 @@ namespace TASQSim {
                         FRONT_LICENSE,
                         REAR_LICENSE,
                         DRIVER1,
-                        DRIVER2,
-                        DRIVER3,
-                        PRODUCT,
                         QNTY,
-                        CREATE_DATE,
-                        APPROVE_ID,
-                        APPROVE_NAME,
-                        DESTINATION_ID,
                         DESTINATION_NAME,
                         TAREWEIGHT,
                         MAXWEIGHT,
                         VEHICLE_NAME,
                         REGULATIONWEIGHT,
-                        FULLTANK};
+                        FULLTANK,
+                        Q_ID,
+                        Q_STATUS};
                 rowT_ORDERS_CACHERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowT_ORDERS_CACHERow);
                 return rowT_ORDERS_CACHERow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public T_ORDERS_CACHERow FindByORDER_CODE(string ORDER_CODE) {
+                return ((T_ORDERS_CACHERow)(this.Rows.Find(new object[] {
+                            ORDER_CODE})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5505,7 +5440,6 @@ namespace TASQSim {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnORDER_ID = base.Columns["ORDER_ID"];
                 this.columnORDER_CODE = base.Columns["ORDER_CODE"];
                 this.columnCOMPANY = base.Columns["COMPANY"];
                 this.columnDATEARRIVE = base.Columns["DATEARRIVE"];
@@ -5513,27 +5447,20 @@ namespace TASQSim {
                 this.columnFRONT_LICENSE = base.Columns["FRONT_LICENSE"];
                 this.columnREAR_LICENSE = base.Columns["REAR_LICENSE"];
                 this.columnDRIVER1 = base.Columns["DRIVER1"];
-                this.columnDRIVER2 = base.Columns["DRIVER2"];
-                this.columnDRIVER3 = base.Columns["DRIVER3"];
-                this.columnPRODUCT = base.Columns["PRODUCT"];
                 this.columnQNTY = base.Columns["QNTY"];
-                this.columnCREATE_DATE = base.Columns["CREATE_DATE"];
-                this.columnAPPROVE_ID = base.Columns["APPROVE_ID"];
-                this.columnAPPROVE_NAME = base.Columns["APPROVE_NAME"];
-                this.columnDESTINATION_ID = base.Columns["DESTINATION_ID"];
                 this.columnDESTINATION_NAME = base.Columns["DESTINATION_NAME"];
                 this.columnTAREWEIGHT = base.Columns["TAREWEIGHT"];
                 this.columnMAXWEIGHT = base.Columns["MAXWEIGHT"];
                 this.columnVEHICLE_NAME = base.Columns["VEHICLE_NAME"];
                 this.columnREGULATIONWEIGHT = base.Columns["REGULATIONWEIGHT"];
                 this.columnFULLTANK = base.Columns["FULLTANK"];
+                this.columnQ_ID = base.Columns["Q_ID"];
+                this.columnQ_STATUS = base.Columns["Q_STATUS"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnORDER_ID = new global::System.Data.DataColumn("ORDER_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnORDER_ID);
                 this.columnORDER_CODE = new global::System.Data.DataColumn("ORDER_CODE", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnORDER_CODE);
                 this.columnCOMPANY = new global::System.Data.DataColumn("COMPANY", typeof(string), null, global::System.Data.MappingType.Element);
@@ -5548,22 +5475,8 @@ namespace TASQSim {
                 base.Columns.Add(this.columnREAR_LICENSE);
                 this.columnDRIVER1 = new global::System.Data.DataColumn("DRIVER1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDRIVER1);
-                this.columnDRIVER2 = new global::System.Data.DataColumn("DRIVER2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDRIVER2);
-                this.columnDRIVER3 = new global::System.Data.DataColumn("DRIVER3", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDRIVER3);
-                this.columnPRODUCT = new global::System.Data.DataColumn("PRODUCT", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPRODUCT);
                 this.columnQNTY = new global::System.Data.DataColumn("QNTY", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQNTY);
-                this.columnCREATE_DATE = new global::System.Data.DataColumn("CREATE_DATE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCREATE_DATE);
-                this.columnAPPROVE_ID = new global::System.Data.DataColumn("APPROVE_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAPPROVE_ID);
-                this.columnAPPROVE_NAME = new global::System.Data.DataColumn("APPROVE_NAME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAPPROVE_NAME);
-                this.columnDESTINATION_ID = new global::System.Data.DataColumn("DESTINATION_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESTINATION_ID);
                 this.columnDESTINATION_NAME = new global::System.Data.DataColumn("DESTINATION_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDESTINATION_NAME);
                 this.columnTAREWEIGHT = new global::System.Data.DataColumn("TAREWEIGHT", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -5576,20 +5489,24 @@ namespace TASQSim {
                 base.Columns.Add(this.columnREGULATIONWEIGHT);
                 this.columnFULLTANK = new global::System.Data.DataColumn("FULLTANK", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFULLTANK);
+                this.columnQ_ID = new global::System.Data.DataColumn("Q_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQ_ID);
+                this.columnQ_STATUS = new global::System.Data.DataColumn("Q_STATUS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQ_STATUS);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnORDER_CODE}, true));
+                this.columnORDER_CODE.AllowDBNull = false;
+                this.columnORDER_CODE.Unique = true;
                 this.columnORDER_CODE.MaxLength = 10;
                 this.columnCOMPANY.MaxLength = 10;
                 this.columnCARRIER.MaxLength = 45;
                 this.columnFRONT_LICENSE.MaxLength = 45;
                 this.columnREAR_LICENSE.MaxLength = 45;
                 this.columnDRIVER1.MaxLength = 75;
-                this.columnDRIVER2.MaxLength = 75;
-                this.columnDRIVER3.MaxLength = 75;
-                this.columnPRODUCT.MaxLength = 10;
-                this.columnCREATE_DATE.MaxLength = 10;
-                this.columnAPPROVE_NAME.MaxLength = 75;
                 this.columnDESTINATION_NAME.MaxLength = 150;
                 this.columnVEHICLE_NAME.MaxLength = 45;
                 this.columnFULLTANK.MaxLength = 1;
+                this.columnQ_STATUS.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9287,30 +9204,9 @@ namespace TASQSim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal ORDER_ID {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableT_ORDERS_CACHE.ORDER_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ORDER_ID\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableT_ORDERS_CACHE.ORDER_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string ORDER_CODE {
                 get {
-                    try {
-                        return ((string)(this[this.tableT_ORDERS_CACHE.ORDER_CODEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ORDER_CODE\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableT_ORDERS_CACHE.ORDER_CODEColumn]));
                 }
                 set {
                     this[this.tableT_ORDERS_CACHE.ORDER_CODEColumn] = value;
@@ -9415,54 +9311,6 @@ namespace TASQSim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DRIVER2 {
-                get {
-                    try {
-                        return ((string)(this[this.tableT_ORDERS_CACHE.DRIVER2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DRIVER2\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableT_ORDERS_CACHE.DRIVER2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DRIVER3 {
-                get {
-                    try {
-                        return ((string)(this[this.tableT_ORDERS_CACHE.DRIVER3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DRIVER3\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableT_ORDERS_CACHE.DRIVER3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string PRODUCT {
-                get {
-                    try {
-                        return ((string)(this[this.tableT_ORDERS_CACHE.PRODUCTColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PRODUCT\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableT_ORDERS_CACHE.PRODUCTColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal QNTY {
                 get {
                     try {
@@ -9474,70 +9322,6 @@ namespace TASQSim {
                 }
                 set {
                     this[this.tableT_ORDERS_CACHE.QNTYColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string CREATE_DATE {
-                get {
-                    try {
-                        return ((string)(this[this.tableT_ORDERS_CACHE.CREATE_DATEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CREATE_DATE\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableT_ORDERS_CACHE.CREATE_DATEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal APPROVE_ID {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableT_ORDERS_CACHE.APPROVE_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'APPROVE_ID\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableT_ORDERS_CACHE.APPROVE_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string APPROVE_NAME {
-                get {
-                    try {
-                        return ((string)(this[this.tableT_ORDERS_CACHE.APPROVE_NAMEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'APPROVE_NAME\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableT_ORDERS_CACHE.APPROVE_NAMEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal DESTINATION_ID {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableT_ORDERS_CACHE.DESTINATION_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DESTINATION_ID\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableT_ORDERS_CACHE.DESTINATION_IDColumn] = value;
                 }
             }
             
@@ -9639,26 +9423,34 @@ namespace TASQSim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsORDER_IDNull() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.ORDER_IDColumn);
+            public decimal Q_ID {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableT_ORDERS_CACHE.Q_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Q_ID\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableT_ORDERS_CACHE.Q_IDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetORDER_IDNull() {
-                this[this.tableT_ORDERS_CACHE.ORDER_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsORDER_CODENull() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.ORDER_CODEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetORDER_CODENull() {
-                this[this.tableT_ORDERS_CACHE.ORDER_CODEColumn] = global::System.Convert.DBNull;
+            public string Q_STATUS {
+                get {
+                    try {
+                        return ((string)(this[this.tableT_ORDERS_CACHE.Q_STATUSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Q_STATUS\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableT_ORDERS_CACHE.Q_STATUSColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9735,42 +9527,6 @@ namespace TASQSim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDRIVER2Null() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.DRIVER2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDRIVER2Null() {
-                this[this.tableT_ORDERS_CACHE.DRIVER2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDRIVER3Null() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.DRIVER3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDRIVER3Null() {
-                this[this.tableT_ORDERS_CACHE.DRIVER3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsPRODUCTNull() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.PRODUCTColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetPRODUCTNull() {
-                this[this.tableT_ORDERS_CACHE.PRODUCTColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsQNTYNull() {
                 return this.IsNull(this.tableT_ORDERS_CACHE.QNTYColumn);
             }
@@ -9779,54 +9535,6 @@ namespace TASQSim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetQNTYNull() {
                 this[this.tableT_ORDERS_CACHE.QNTYColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCREATE_DATENull() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.CREATE_DATEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCREATE_DATENull() {
-                this[this.tableT_ORDERS_CACHE.CREATE_DATEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsAPPROVE_IDNull() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.APPROVE_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetAPPROVE_IDNull() {
-                this[this.tableT_ORDERS_CACHE.APPROVE_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsAPPROVE_NAMENull() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.APPROVE_NAMEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetAPPROVE_NAMENull() {
-                this[this.tableT_ORDERS_CACHE.APPROVE_NAMEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDESTINATION_IDNull() {
-                return this.IsNull(this.tableT_ORDERS_CACHE.DESTINATION_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDESTINATION_IDNull() {
-                this[this.tableT_ORDERS_CACHE.DESTINATION_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9899,6 +9607,30 @@ namespace TASQSim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetFULLTANKNull() {
                 this[this.tableT_ORDERS_CACHE.FULLTANKColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsQ_IDNull() {
+                return this.IsNull(this.tableT_ORDERS_CACHE.Q_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetQ_IDNull() {
+                this[this.tableT_ORDERS_CACHE.Q_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsQ_STATUSNull() {
+                return this.IsNull(this.tableT_ORDERS_CACHE.Q_STATUSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetQ_STATUSNull() {
+                this[this.tableT_ORDERS_CACHE.Q_STATUSColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -12188,9 +11920,9 @@ WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
             this._commandCollection[0] = new global::System.Data.OracleClient.OracleCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        LOGTIME, SEQ, LOGCAT, LOGTXT\r\nFROM            LOADING_SQ_LOG\r\nWHERE" +
-                "        (LOGTIME > (CURRENT_DATE - :HOURS / 24))\r\nORDER BY LOGTIME DESC";
+                "        (LOGTIME > CURRENT_DATE - :HOURS / 24)\r\nORDER BY SEQ DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OracleClient.OracleParameter("HOURS", global::System.Data.OracleClient.OracleType.Number, 3, global::System.Data.ParameterDirection.Input, "LOGTIME", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OracleClient.OracleParameter("HOURS", global::System.Data.OracleClient.OracleType.Number, 7, global::System.Data.ParameterDirection.Input, "LOGTIME", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12323,7 +12055,6 @@ WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "T_ORDERS_CACHE";
-            tableMapping.ColumnMappings.Add("ORDER_ID", "ORDER_ID");
             tableMapping.ColumnMappings.Add("ORDER_CODE", "ORDER_CODE");
             tableMapping.ColumnMappings.Add("COMPANY", "COMPANY");
             tableMapping.ColumnMappings.Add("DATEARRIVE", "DATEARRIVE");
@@ -12331,20 +12062,15 @@ WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
             tableMapping.ColumnMappings.Add("FRONT_LICENSE", "FRONT_LICENSE");
             tableMapping.ColumnMappings.Add("REAR_LICENSE", "REAR_LICENSE");
             tableMapping.ColumnMappings.Add("DRIVER1", "DRIVER1");
-            tableMapping.ColumnMappings.Add("DRIVER2", "DRIVER2");
-            tableMapping.ColumnMappings.Add("DRIVER3", "DRIVER3");
-            tableMapping.ColumnMappings.Add("PRODUCT", "PRODUCT");
             tableMapping.ColumnMappings.Add("QNTY", "QNTY");
-            tableMapping.ColumnMappings.Add("CREATE_DATE", "CREATE_DATE");
-            tableMapping.ColumnMappings.Add("APPROVE_ID", "APPROVE_ID");
-            tableMapping.ColumnMappings.Add("APPROVE_NAME", "APPROVE_NAME");
-            tableMapping.ColumnMappings.Add("DESTINATION_ID", "DESTINATION_ID");
             tableMapping.ColumnMappings.Add("DESTINATION_NAME", "DESTINATION_NAME");
             tableMapping.ColumnMappings.Add("TAREWEIGHT", "TAREWEIGHT");
             tableMapping.ColumnMappings.Add("MAXWEIGHT", "MAXWEIGHT");
             tableMapping.ColumnMappings.Add("VEHICLE_NAME", "VEHICLE_NAME");
             tableMapping.ColumnMappings.Add("REGULATIONWEIGHT", "REGULATIONWEIGHT");
             tableMapping.ColumnMappings.Add("FULLTANK", "FULLTANK");
+            tableMapping.ColumnMappings.Add("Q_ID", "Q_ID");
+            tableMapping.ColumnMappings.Add("Q_STATUS", "Q_STATUS");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12361,7 +12087,10 @@ WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
             this._commandCollection = new global::System.Data.OracleClient.OracleCommand[1];
             this._commandCollection[0] = new global::System.Data.OracleClient.OracleCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        *\r\nFROM            T_ORDERS_CACHE";
+            this._commandCollection[0].CommandText = @"SELECT        Q.Q_ID, Q.Q_STATUS, C.ORDER_CODE, C.COMPANY, C.DATEARRIVE, C.CARRIER, C.FRONT_LICENSE, C.REAR_LICENSE, C.DRIVER1, C.QNTY, C.DESTINATION_NAME, C.TAREWEIGHT, C.MAXWEIGHT, 
+                         C.VEHICLE_NAME, C.REGULATIONWEIGHT, C.FULLTANK
+FROM          T_ORDERS_CACHE C LEFT OUTER JOIN
+                         T_QUEUE Q ON C.ORDER_CODE = Q.ORDER_CODE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

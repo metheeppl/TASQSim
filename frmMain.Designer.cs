@@ -55,28 +55,17 @@ namespace TASQSim
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.dgwMeterQAll = new System.Windows.Forms.DataGridView();
-            this.mETERIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mTRNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAINTENANCEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTATUSDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dRYRUNDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qAUTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROG_Q1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROG_Q2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsMeterQAll = new System.Windows.Forms.BindingSource(this.components);
-            this.dsSim = new TASQSim.dsSIM();
-            this.lOADINGMODETextBox = new System.Windows.Forms.TextBox();
-            this.bsMeterQ = new System.Windows.Forms.BindingSource(this.components);
+            this.tbMain = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.bsQueue = new System.Windows.Forms.BindingSource(this.components);
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.oCARD_TAGIDTextBox = new System.Windows.Forms.TextBox();
             this.sTIMERTextBox = new System.Windows.Forms.TextBox();
@@ -109,21 +98,16 @@ namespace TASQSim
             this.bAYIDTextBox = new System.Windows.Forms.TextBox();
             this.dESCRIPTIONTextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.oRDER_IDTextBox = new System.Windows.Forms.TextBox();
+            this.tbAuto = new System.Windows.Forms.TextBox();
             this.bATCH_IDTextBox = new System.Windows.Forms.TextBox();
             this.bATCH_QNTYTextBox = new System.Windows.Forms.TextBox();
             this.cARD_LABELTextBox = new System.Windows.Forms.TextBox();
             this.tM_CHECKINTextBox = new System.Windows.Forms.TextBox();
-            this.lICPLATETextBox = new System.Windows.Forms.TextBox();
-            this.oRDER_QNTYTextBox = new System.Windows.Forms.TextBox();
+            this.tbDry = new System.Windows.Forms.TextBox();
+            this.tbStatus = new System.Windows.Forms.TextBox();
             this.pRVBATCHIDTextBox = new System.Windows.Forms.TextBox();
             this.oCARD_LABELTextBox = new System.Windows.Forms.TextBox();
-            this.bsQUEUE1 = new System.Windows.Forms.BindingSource(this.components);
             this.dgvDevIO_W = new System.Windows.Forms.DataGridView();
-            this.iONAMEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iOVALUEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEQWDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsDEVICEIO_W = new System.Windows.Forms.BindingSource(this.components);
             this.fillToolStrip = new System.Windows.Forms.ToolStrip();
             this.bAYIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.bAYIDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -137,41 +121,51 @@ namespace TASQSim
             this.tabBottom = new System.Windows.Forms.TabControl();
             this.tpgSQLog = new System.Windows.Forms.TabPage();
             this.QUEUE_SQ_LOGDataGridView = new System.Windows.Forms.DataGridView();
+            this.tpgCache = new System.Windows.Forms.TabPage();
+            this.dgwCache = new System.Windows.Forms.DataGridView();
+            this.tpgQ = new System.Windows.Forms.TabPage();
+            this.dgwQ = new System.Windows.Forms.DataGridView();
+            this.STDTAREWEIGHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAXWEIGHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REGULATIONWEIGHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpgORDER = new System.Windows.Forms.TabPage();
+            this.dgwO = new System.Windows.Forms.DataGridView();
+            this.tpgLSQLog = new System.Windows.Forms.TabPage();
+            this.dgwLSQLog = new System.Windows.Forms.DataGridView();
+            this.tpgIOLog2 = new System.Windows.Forms.TabPage();
+            this.dEVICEIO_LOG2DataGridView = new System.Windows.Forms.DataGridView();
+            this.tpgIOLog = new System.Windows.Forms.TabPage();
+            this.dEVICEIO_LOGDataGridView = new System.Windows.Forms.DataGridView();
+            this.dgvDevIO_R = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panelRgh = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsSQLOG = new System.Windows.Forms.BindingSource(this.components);
-            this.tpgLSQLog = new System.Windows.Forms.TabPage();
-            this.dgwLSQLog = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsLSQLog = new System.Windows.Forms.BindingSource(this.components);
-            this.tpgIOLog2 = new System.Windows.Forms.TabPage();
-            this.dEVICEIO_LOG2DataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsIOLog2 = new System.Windows.Forms.BindingSource(this.components);
-            this.tpgIOLog = new System.Windows.Forms.TabPage();
-            this.dEVICEIO_LOGDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsIOLog = new System.Windows.Forms.BindingSource(this.components);
-            this.tpgQ = new System.Windows.Forms.TabPage();
-            this.dgwQ = new System.Windows.Forms.DataGridView();
+            this.dsSim = new TASQSim.dsSIM();
+            this.qSTATUSDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oRDERCODEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOMPANYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dATEARRIVEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cARRIERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fRONTLICENSEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEARLICENSEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dRIVER1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qNTYDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESTINATIONNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tAREWEIGHTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAXWEIGHTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vEHICLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fULLTANKDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsORDERSCACHE = new System.Windows.Forms.BindingSource(this.components);
             this.qIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qSTATUSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dRYRUNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STDTAREWEIGHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAXWEIGHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REGULATIONWEIGHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wAITTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oRDERCODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fRONTLICENSEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -182,19 +176,65 @@ namespace TASQSim
             this.tSPARKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tSEXITDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tpgORDER = new System.Windows.Forms.TabPage();
-            this.dgwO = new System.Windows.Forms.DataGridView();
+            this.bsQUEUE1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bsORDERS_WEB = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsLSQLog = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsIOLog2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsIOLog = new System.Windows.Forms.BindingSource(this.components);
+            this.mETERIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mTRNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAINTENANCEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTATUSDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dRYRUNDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qAUTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsMeterQAll = new System.Windows.Forms.BindingSource(this.components);
+            this.bsMeterQ = new System.Windows.Forms.BindingSource(this.components);
+            this.bsQueue = new System.Windows.Forms.BindingSource(this.components);
+            this.iONAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iOVALUEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEADONDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsDEVICEIO_R = new System.Windows.Forms.BindingSource(this.components);
+            this.iONAMEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iOVALUEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEQWDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsDEVICEIO_W = new System.Windows.Forms.BindingSource(this.components);
+            this.taSQLOG = new TASQSim.dsSIMTableAdapters.QUEUE_SQ_LOGTableAdapter();
+            this.taIOLog = new TASQSim.dsSIMTableAdapters.DEVICEIO_LOGTableAdapter();
+            this.taDevIO_R = new TASQSim.dsSIMTableAdapters.DEVICEIO_RTableAdapter();
+            this.taDevIO_W = new TASQSim.dsSIMTableAdapters.DEVICEIO_WTableAdapter();
+            this.sim_ta = new TASQSim.dsSIMTableAdapters.SimTableAdapter();
+            this.taIOLog2 = new TASQSim.dsSIMTableAdapters.DEVICEIO_LOG2TableAdapter();
+            this.taMETER_Q = new TASQSim.dsSIMTableAdapters.T_METER_QTableAdapter();
+            this.taQUEUE = new TASQSim.dsSIMTableAdapters.T_QUEUETableAdapter();
+            this.taQUEUE1 = new TASQSim.dsSIMTableAdapters.T_QUEUE1TableAdapter();
+            this.taORDERS_WEB = new TASQSim.dsSIMTableAdapters.T_ORDERS_WEBTableAdapter();
+            this.taLSQLog = new TASQSim.dsSIMTableAdapters.LOADING_SQ_LOGTableAdapter();
+            this.taORDERSCACHE = new TASQSim.dsSIMTableAdapters.T_ORDERS_CACHETableAdapter();
+            this.qIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oRDERIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oRDERCODEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dATEARRIVEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sTATUSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mETERIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cARDIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fRONTLICENSEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rEARLICENSEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qNTYDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sTDTAREWEIGHTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mAXWEIGHTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mETERIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cARDIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTATUSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oRDERNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gROSSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -208,41 +248,12 @@ namespace TASQSim
             this.rEGULATIONWEIGHTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wEIGHTSCALEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cALCQUANTITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsORDERS_WEB = new System.Windows.Forms.BindingSource(this.components);
-            this.tpgCache = new System.Windows.Forms.TabPage();
-            this.dgwCache = new System.Windows.Forms.DataGridView();
-            this.oRDERIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CARRIER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oRDERCODEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fRONTLICENSEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEARLICENSEDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qNTYDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tAREWEIGHTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAXWEIGHTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vEHICLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fULLTANKDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsORDERSCACHE = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvDevIO_R = new System.Windows.Forms.DataGridView();
-            this.iONAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iOVALUEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEADONDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsDEVICEIO_R = new System.Windows.Forms.BindingSource(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panelRgh = new System.Windows.Forms.Panel();
-            this.taSQLOG = new TASQSim.dsSIMTableAdapters.QUEUE_SQ_LOGTableAdapter();
-            this.taIOLog = new TASQSim.dsSIMTableAdapters.DEVICEIO_LOGTableAdapter();
-            this.taDevIO_R = new TASQSim.dsSIMTableAdapters.DEVICEIO_RTableAdapter();
-            this.taDevIO_W = new TASQSim.dsSIMTableAdapters.DEVICEIO_WTableAdapter();
-            this.sim_ta = new TASQSim.dsSIMTableAdapters.SimTableAdapter();
-            this.taIOLog2 = new TASQSim.dsSIMTableAdapters.DEVICEIO_LOG2TableAdapter();
-            this.taMETER_Q = new TASQSim.dsSIMTableAdapters.T_METER_QTableAdapter();
-            this.taQUEUE = new TASQSim.dsSIMTableAdapters.T_QUEUETableAdapter();
-            this.taQUEUE1 = new TASQSim.dsSIMTableAdapters.T_QUEUE1TableAdapter();
-            this.taORDERS_WEB = new TASQSim.dsSIMTableAdapters.T_ORDERS_WEBTableAdapter();
-            this.taLSQLog = new TASQSim.dsSIMTableAdapters.LOADING_SQ_LOGTableAdapter();
-            this.taORDERSCACHE = new TASQSim.dsSIMTableAdapters.T_ORDERS_CACHETableAdapter();
+            this.btnSwMain = new System.Windows.Forms.Button();
+            this.btnSwAuto = new System.Windows.Forms.Button();
+            this.btnSwDry = new System.Windows.Forms.Button();
+            this.btnL2K = new System.Windows.Forms.Button();
+            this.chk1KLPM = new System.Windows.Forms.CheckBox();
+            this.chk2KLPM = new System.Windows.Forms.CheckBox();
             bAYIDLabel = new System.Windows.Forms.Label();
             dESCRIPTIONLabel = new System.Windows.Forms.Label();
             lOADINGMODELabel = new System.Windows.Forms.Label();
@@ -270,38 +281,38 @@ namespace TASQSim
             label4 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMeterQAll)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMeterQAll)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSim)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMeterQ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsQueue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsQUEUE1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevIO_W)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDEVICEIO_W)).BeginInit();
             this.fillToolStrip.SuspendLayout();
             this.tabBottom.SuspendLayout();
             this.tpgSQLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QUEUE_SQ_LOGDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSQLOG)).BeginInit();
-            this.tpgLSQLog.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwLSQLog)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLSQLog)).BeginInit();
-            this.tpgIOLog2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dEVICEIO_LOG2DataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsIOLog2)).BeginInit();
-            this.tpgIOLog.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dEVICEIO_LOGDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsIOLog)).BeginInit();
+            this.tpgCache.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwCache)).BeginInit();
             this.tpgQ.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwQ)).BeginInit();
             this.tpgORDER.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsORDERS_WEB)).BeginInit();
-            this.tpgCache.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwCache)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsORDERSCACHE)).BeginInit();
+            this.tpgLSQLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwLSQLog)).BeginInit();
+            this.tpgIOLog2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dEVICEIO_LOG2DataGridView)).BeginInit();
+            this.tpgIOLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dEVICEIO_LOGDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevIO_R)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDEVICEIO_R)).BeginInit();
             this.panelRgh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSQLOG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsORDERSCACHE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQUEUE1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsORDERS_WEB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLSQLog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsIOLog2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsIOLog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMeterQAll)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMeterQ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQueue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDEVICEIO_R)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDEVICEIO_W)).BeginInit();
             this.SuspendLayout();
             // 
             // bAYIDLabel
@@ -397,7 +408,7 @@ namespace TASQSim
             // mSG1Label
             // 
             mSG1Label.AutoSize = true;
-            mSG1Label.Location = new System.Drawing.Point(157, 38);
+            mSG1Label.Location = new System.Drawing.Point(200, 38);
             mSG1Label.Name = "mSG1Label";
             mSG1Label.Size = new System.Drawing.Size(40, 13);
             mSG1Label.TabIndex = 32;
@@ -406,7 +417,7 @@ namespace TASQSim
             // mSG2Label
             // 
             mSG2Label.AutoSize = true;
-            mSG2Label.Location = new System.Drawing.Point(157, 55);
+            mSG2Label.Location = new System.Drawing.Point(200, 55);
             mSG2Label.Name = "mSG2Label";
             mSG2Label.Size = new System.Drawing.Size(40, 13);
             mSG2Label.TabIndex = 34;
@@ -433,7 +444,7 @@ namespace TASQSim
             // dEBUG_MSGLabel
             // 
             dEBUG_MSGLabel.AutoSize = true;
-            dEBUG_MSGLabel.Location = new System.Drawing.Point(157, 21);
+            dEBUG_MSGLabel.Location = new System.Drawing.Point(192, 21);
             dEBUG_MSGLabel.Name = "dEBUG_MSGLabel";
             dEBUG_MSGLabel.Size = new System.Drawing.Size(48, 13);
             dEBUG_MSGLabel.TabIndex = 48;
@@ -505,7 +516,7 @@ namespace TASQSim
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(280, 89);
+            label2.Location = new System.Drawing.Point(280, 92);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(53, 13);
             label2.TabIndex = 76;
@@ -523,7 +534,7 @@ namespace TASQSim
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(280, 106);
+            label4.Location = new System.Drawing.Point(280, 109);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(53, 13);
             label4.TabIndex = 76;
@@ -531,8 +542,10 @@ namespace TASQSim
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.chk2KLPM);
+            this.panelTop.Controls.Add(this.chk1KLPM);
             this.panelTop.Controls.Add(this.dgwMeterQAll);
-            this.panelTop.Controls.Add(this.lOADINGMODETextBox);
+            this.panelTop.Controls.Add(this.tbMain);
             this.panelTop.Controls.Add(this.textBox4);
             this.panelTop.Controls.Add(this.textBox3);
             this.panelTop.Controls.Add(this.oCARD_TAGIDTextBox);
@@ -546,6 +559,7 @@ namespace TASQSim
             this.panelTop.Controls.Add(this.sQERRORTextBox);
             this.panelTop.Controls.Add(this.dEBUG_MSGTextBox);
             this.panelTop.Controls.Add(this.btnSTare);
+            this.panelTop.Controls.Add(this.btnL2K);
             this.panelTop.Controls.Add(this.btnL1000);
             this.panelTop.Controls.Add(this.btnS7);
             this.panelTop.Controls.Add(this.btnS5);
@@ -554,6 +568,9 @@ namespace TASQSim
             this.panelTop.Controls.Add(this.btnS2);
             this.panelTop.Controls.Add(this.btnSyncIO);
             this.panelTop.Controls.Add(this.btnIORF);
+            this.panelTop.Controls.Add(this.btnSwDry);
+            this.panelTop.Controls.Add(this.btnSwAuto);
+            this.panelTop.Controls.Add(this.btnSwMain);
             this.panelTop.Controls.Add(this.btnS0);
             this.panelTop.Controls.Add(this.btnFL);
             this.panelTop.Controls.Add(this.btnS1);
@@ -571,7 +588,7 @@ namespace TASQSim
             this.panelTop.Controls.Add(label1);
             this.panelTop.Controls.Add(oRDER_IDLabel);
             this.panelTop.Controls.Add(this.textBox1);
-            this.panelTop.Controls.Add(this.oRDER_IDTextBox);
+            this.panelTop.Controls.Add(this.tbAuto);
             this.panelTop.Controls.Add(bATCH_IDLabel);
             this.panelTop.Controls.Add(this.bATCH_IDTextBox);
             this.panelTop.Controls.Add(bATCH_QNTYLabel);
@@ -581,14 +598,14 @@ namespace TASQSim
             this.panelTop.Controls.Add(tM_CHECKINLabel);
             this.panelTop.Controls.Add(this.tM_CHECKINTextBox);
             this.panelTop.Controls.Add(lICPLATELabel);
-            this.panelTop.Controls.Add(this.lICPLATETextBox);
+            this.panelTop.Controls.Add(this.tbDry);
             this.panelTop.Controls.Add(sTIMERLabel);
             this.panelTop.Controls.Add(mSG1Label);
             this.panelTop.Controls.Add(mSG2Label);
             this.panelTop.Controls.Add(sQERRORLabel);
             this.panelTop.Controls.Add(aLERTLabel);
             this.panelTop.Controls.Add(oRDER_QNTYLabel);
-            this.panelTop.Controls.Add(this.oRDER_QNTYTextBox);
+            this.panelTop.Controls.Add(this.tbStatus);
             this.panelTop.Controls.Add(dEBUG_MSGLabel);
             this.panelTop.Controls.Add(uSTR4Label);
             this.panelTop.Controls.Add(pRVBATCHIDLabel);
@@ -633,62 +650,6 @@ namespace TASQSim
             this.dgwMeterQAll.TabIndex = 97;
             this.dgwMeterQAll.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwMeterQAll_CellDoubleClick);
             // 
-            // mETERIDDataGridViewTextBoxColumn2
-            // 
-            this.mETERIDDataGridViewTextBoxColumn2.DataPropertyName = "METER_ID";
-            this.mETERIDDataGridViewTextBoxColumn2.HeaderText = "METER_ID";
-            this.mETERIDDataGridViewTextBoxColumn2.Name = "mETERIDDataGridViewTextBoxColumn2";
-            this.mETERIDDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.mETERIDDataGridViewTextBoxColumn2.Width = 20;
-            // 
-            // mTRNAMEDataGridViewTextBoxColumn
-            // 
-            this.mTRNAMEDataGridViewTextBoxColumn.DataPropertyName = "MTRNAME";
-            this.mTRNAMEDataGridViewTextBoxColumn.HeaderText = "MTRNAME";
-            this.mTRNAMEDataGridViewTextBoxColumn.Name = "mTRNAMEDataGridViewTextBoxColumn";
-            this.mTRNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mTRNAMEDataGridViewTextBoxColumn.Width = 20;
-            // 
-            // mAINTENANCEDataGridViewTextBoxColumn
-            // 
-            this.mAINTENANCEDataGridViewTextBoxColumn.DataPropertyName = "MAINTENANCE";
-            this.mAINTENANCEDataGridViewTextBoxColumn.HeaderText = "MAINTENANCE";
-            this.mAINTENANCEDataGridViewTextBoxColumn.Name = "mAINTENANCEDataGridViewTextBoxColumn";
-            this.mAINTENANCEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mAINTENANCEDataGridViewTextBoxColumn.Width = 25;
-            // 
-            // sTATUSDataGridViewTextBoxColumn1
-            // 
-            this.sTATUSDataGridViewTextBoxColumn1.DataPropertyName = "STATUS";
-            this.sTATUSDataGridViewTextBoxColumn1.HeaderText = "STATUS";
-            this.sTATUSDataGridViewTextBoxColumn1.Name = "sTATUSDataGridViewTextBoxColumn1";
-            this.sTATUSDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.sTATUSDataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // dRYRUNDataGridViewTextBoxColumn1
-            // 
-            this.dRYRUNDataGridViewTextBoxColumn1.DataPropertyName = "DRYRUN";
-            this.dRYRUNDataGridViewTextBoxColumn1.HeaderText = "DRYRUN";
-            this.dRYRUNDataGridViewTextBoxColumn1.Name = "dRYRUNDataGridViewTextBoxColumn1";
-            this.dRYRUNDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dRYRUNDataGridViewTextBoxColumn1.Width = 25;
-            // 
-            // qAUTODataGridViewTextBoxColumn
-            // 
-            this.qAUTODataGridViewTextBoxColumn.DataPropertyName = "Q_AUTO";
-            this.qAUTODataGridViewTextBoxColumn.HeaderText = "Q_AUTO";
-            this.qAUTODataGridViewTextBoxColumn.Name = "qAUTODataGridViewTextBoxColumn";
-            this.qAUTODataGridViewTextBoxColumn.ReadOnly = true;
-            this.qAUTODataGridViewTextBoxColumn.Width = 25;
-            // 
-            // qIDDataGridViewTextBoxColumn2
-            // 
-            this.qIDDataGridViewTextBoxColumn2.DataPropertyName = "Q_ID";
-            this.qIDDataGridViewTextBoxColumn2.HeaderText = "Q_ID";
-            this.qIDDataGridViewTextBoxColumn2.Name = "qIDDataGridViewTextBoxColumn2";
-            this.qIDDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.qIDDataGridViewTextBoxColumn2.Width = 30;
-            // 
             // CNT
             // 
             this.CNT.DataPropertyName = "CNT";
@@ -713,52 +674,29 @@ namespace TASQSim
             this.PROG_Q2.ReadOnly = true;
             this.PROG_Q2.Width = 45;
             // 
-            // bsMeterQAll
+            // tbMain
             // 
-            this.bsMeterQAll.AllowNew = false;
-            this.bsMeterQAll.DataMember = "T_METER_Q";
-            this.bsMeterQAll.DataSource = this.dsSim;
-            // 
-            // dsSim
-            // 
-            this.dsSim.DataSetName = "dsSIM";
-            this.dsSim.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lOADINGMODETextBox
-            // 
-            this.lOADINGMODETextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lOADINGMODETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "MAINTENANCE", true));
-            this.lOADINGMODETextBox.Location = new System.Drawing.Point(92, 21);
-            this.lOADINGMODETextBox.Name = "lOADINGMODETextBox";
-            this.lOADINGMODETextBox.Size = new System.Drawing.Size(62, 13);
-            this.lOADINGMODETextBox.TabIndex = 5;
-            // 
-            // bsMeterQ
-            // 
-            this.bsMeterQ.AllowNew = false;
-            this.bsMeterQ.DataMember = "T_METER_Q";
-            this.bsMeterQ.DataSource = this.dsSim;
+            this.tbMain.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbMain.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "MAINTENANCE", true));
+            this.tbMain.Location = new System.Drawing.Point(92, 21);
+            this.tbMain.Name = "tbMain";
+            this.tbMain.Size = new System.Drawing.Size(42, 13);
+            this.tbMain.TabIndex = 5;
             // 
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQueue, "REGULATIONWEIGHT", true));
-            this.textBox4.Location = new System.Drawing.Point(346, 106);
+            this.textBox4.Location = new System.Drawing.Point(346, 109);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(50, 13);
             this.textBox4.TabIndex = 77;
-            // 
-            // bsQueue
-            // 
-            this.bsQueue.AllowNew = false;
-            this.bsQueue.DataMember = "T_QUEUE";
-            this.bsQueue.DataSource = this.dsSim;
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQueue, "MAXWEIGHT", true));
-            this.textBox3.Location = new System.Drawing.Point(346, 89);
+            this.textBox3.Location = new System.Drawing.Point(346, 92);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(50, 13);
             this.textBox3.TabIndex = 77;
@@ -792,11 +730,11 @@ namespace TASQSim
             // 
             // textBox2
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQueue, "STDTAREWEIGHT", true));
-            this.textBox2.Location = new System.Drawing.Point(346, 72);
+            this.textBox2.Location = new System.Drawing.Point(346, 70);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 13);
+            this.textBox2.Size = new System.Drawing.Size(50, 20);
             this.textBox2.TabIndex = 73;
             // 
             // uSTR4TextBox
@@ -821,18 +759,18 @@ namespace TASQSim
             // 
             this.mSG1TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mSG1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "MSG1", true));
-            this.mSG1TextBox.Location = new System.Drawing.Point(221, 38);
+            this.mSG1TextBox.Location = new System.Drawing.Point(237, 38);
             this.mSG1TextBox.Name = "mSG1TextBox";
-            this.mSG1TextBox.Size = new System.Drawing.Size(175, 13);
+            this.mSG1TextBox.Size = new System.Drawing.Size(159, 13);
             this.mSG1TextBox.TabIndex = 33;
             // 
             // mSG2TextBox
             // 
             this.mSG2TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mSG2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "MSG2", true));
-            this.mSG2TextBox.Location = new System.Drawing.Point(221, 55);
+            this.mSG2TextBox.Location = new System.Drawing.Point(237, 55);
             this.mSG2TextBox.Name = "mSG2TextBox";
-            this.mSG2TextBox.Size = new System.Drawing.Size(175, 13);
+            this.mSG2TextBox.Size = new System.Drawing.Size(159, 13);
             this.mSG2TextBox.TabIndex = 35;
             // 
             // sQERRORTextBox
@@ -848,9 +786,9 @@ namespace TASQSim
             // 
             this.dEBUG_MSGTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dEBUG_MSGTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "DEBUG_MSG", true));
-            this.dEBUG_MSGTextBox.Location = new System.Drawing.Point(221, 21);
+            this.dEBUG_MSGTextBox.Location = new System.Drawing.Point(237, 21);
             this.dEBUG_MSGTextBox.Name = "dEBUG_MSGTextBox";
-            this.dEBUG_MSGTextBox.Size = new System.Drawing.Size(175, 13);
+            this.dEBUG_MSGTextBox.Size = new System.Drawing.Size(159, 13);
             this.dEBUG_MSGTextBox.TabIndex = 49;
             // 
             // btnSTare
@@ -941,10 +879,10 @@ namespace TASQSim
             // btnSyncIO
             // 
             this.btnSyncIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSyncIO.Location = new System.Drawing.Point(470, 145);
+            this.btnSyncIO.Location = new System.Drawing.Point(459, 145);
             this.btnSyncIO.Margin = new System.Windows.Forms.Padding(1);
             this.btnSyncIO.Name = "btnSyncIO";
-            this.btnSyncIO.Size = new System.Drawing.Size(179, 21);
+            this.btnSyncIO.Size = new System.Drawing.Size(54, 21);
             this.btnSyncIO.TabIndex = 96;
             this.btnSyncIO.Text = "IO Sync";
             this.btnSyncIO.UseVisualStyleBackColor = true;
@@ -953,12 +891,12 @@ namespace TASQSim
             // btnIORF
             // 
             this.btnIORF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIORF.Location = new System.Drawing.Point(650, 145);
+            this.btnIORF.Location = new System.Drawing.Point(681, 145);
             this.btnIORF.Margin = new System.Windows.Forms.Padding(1);
             this.btnIORF.Name = "btnIORF";
-            this.btnIORF.Size = new System.Drawing.Size(89, 21);
+            this.btnIORF.Size = new System.Drawing.Size(58, 21);
             this.btnIORF.TabIndex = 96;
-            this.btnIORF.Text = "IO Refesh";
+            this.btnIORF.Text = "IO Refsh";
             this.btnIORF.UseVisualStyleBackColor = true;
             this.btnIORF.Click += new System.EventHandler(this.btnIORF_Click);
             // 
@@ -968,7 +906,7 @@ namespace TASQSim
             this.btnS0.Location = new System.Drawing.Point(391, 145);
             this.btnS0.Margin = new System.Windows.Forms.Padding(1);
             this.btnS0.Name = "btnS0";
-            this.btnS0.Size = new System.Drawing.Size(43, 21);
+            this.btnS0.Size = new System.Drawing.Size(31, 21);
             this.btnS0.TabIndex = 96;
             this.btnS0.Text = "Init";
             this.btnS0.UseVisualStyleBackColor = true;
@@ -980,7 +918,7 @@ namespace TASQSim
             this.btnFL.Location = new System.Drawing.Point(391, 167);
             this.btnFL.Margin = new System.Windows.Forms.Padding(1);
             this.btnFL.Name = "btnFL";
-            this.btnFL.Size = new System.Drawing.Size(43, 21);
+            this.btnFL.Size = new System.Drawing.Size(31, 21);
             this.btnFL.TabIndex = 96;
             this.btnFL.Text = "S FL";
             this.btnFL.UseVisualStyleBackColor = true;
@@ -989,10 +927,10 @@ namespace TASQSim
             // btnS1
             // 
             this.btnS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnS1.Location = new System.Drawing.Point(470, 167);
+            this.btnS1.Location = new System.Drawing.Point(459, 167);
             this.btnS1.Margin = new System.Windows.Forms.Padding(1);
             this.btnS1.Name = "btnS1";
-            this.btnS1.Size = new System.Drawing.Size(44, 20);
+            this.btnS1.Size = new System.Drawing.Size(55, 20);
             this.btnS1.TabIndex = 96;
             this.btnS1.Text = "Card";
             this.btnS1.UseVisualStyleBackColor = true;
@@ -1050,7 +988,7 @@ namespace TASQSim
             // tbStep
             // 
             this.tbStep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbStep.Location = new System.Drawing.Point(438, 145);
+            this.tbStep.Location = new System.Drawing.Point(425, 145);
             this.tbStep.Name = "tbStep";
             this.tbStep.ReadOnly = true;
             this.tbStep.Size = new System.Drawing.Size(30, 20);
@@ -1061,12 +999,13 @@ namespace TASQSim
             // tbCard
             // 
             this.tbCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbCard.Location = new System.Drawing.Point(438, 168);
+            this.tbCard.Location = new System.Drawing.Point(425, 168);
             this.tbCard.Name = "tbCard";
             this.tbCard.Size = new System.Drawing.Size(30, 20);
             this.tbCard.TabIndex = 95;
             this.tbCard.Text = "1";
             this.tbCard.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbCard.TextChanged += new System.EventHandler(this.tbCard_TextChanged);
             // 
             // bAYIDTextBox
             // 
@@ -1095,14 +1034,14 @@ namespace TASQSim
             this.textBox1.Size = new System.Drawing.Size(62, 13);
             this.textBox1.TabIndex = 7;
             // 
-            // oRDER_IDTextBox
+            // tbAuto
             // 
-            this.oRDER_IDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.oRDER_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "Q_AUTO", true));
-            this.oRDER_IDTextBox.Location = new System.Drawing.Point(92, 38);
-            this.oRDER_IDTextBox.Name = "oRDER_IDTextBox";
-            this.oRDER_IDTextBox.Size = new System.Drawing.Size(62, 13);
-            this.oRDER_IDTextBox.TabIndex = 7;
+            this.tbAuto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAuto.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "Q_AUTO", true));
+            this.tbAuto.Location = new System.Drawing.Point(92, 38);
+            this.tbAuto.Name = "tbAuto";
+            this.tbAuto.Size = new System.Drawing.Size(42, 13);
+            this.tbAuto.TabIndex = 7;
             // 
             // bATCH_IDTextBox
             // 
@@ -1137,26 +1076,26 @@ namespace TASQSim
             this.tM_CHECKINTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "SQ_START", true));
             this.tM_CHECKINTextBox.Location = new System.Drawing.Point(92, 108);
             this.tM_CHECKINTextBox.Name = "tM_CHECKINTextBox";
-            this.tM_CHECKINTextBox.Size = new System.Drawing.Size(62, 13);
+            this.tM_CHECKINTextBox.Size = new System.Drawing.Size(95, 13);
             this.tM_CHECKINTextBox.TabIndex = 15;
             // 
-            // lICPLATETextBox
+            // tbDry
             // 
-            this.lICPLATETextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lICPLATETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "DRYRUN", true));
-            this.lICPLATETextBox.Location = new System.Drawing.Point(92, 55);
-            this.lICPLATETextBox.Name = "lICPLATETextBox";
-            this.lICPLATETextBox.Size = new System.Drawing.Size(62, 13);
-            this.lICPLATETextBox.TabIndex = 29;
+            this.tbDry.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDry.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "DRYRUN", true));
+            this.tbDry.Location = new System.Drawing.Point(92, 55);
+            this.tbDry.Name = "tbDry";
+            this.tbDry.Size = new System.Drawing.Size(42, 13);
+            this.tbDry.TabIndex = 29;
             // 
-            // oRDER_QNTYTextBox
+            // tbStatus
             // 
-            this.oRDER_QNTYTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.oRDER_QNTYTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "STATUS", true));
-            this.oRDER_QNTYTextBox.Location = new System.Drawing.Point(92, 72);
-            this.oRDER_QNTYTextBox.Name = "oRDER_QNTYTextBox";
-            this.oRDER_QNTYTextBox.Size = new System.Drawing.Size(62, 13);
-            this.oRDER_QNTYTextBox.TabIndex = 41;
+            this.tbStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsMeterQ, "STATUS", true));
+            this.tbStatus.Location = new System.Drawing.Point(92, 72);
+            this.tbStatus.Name = "tbStatus";
+            this.tbStatus.Size = new System.Drawing.Size(62, 13);
+            this.tbStatus.TabIndex = 41;
             // 
             // pRVBATCHIDTextBox
             // 
@@ -1175,12 +1114,6 @@ namespace TASQSim
             this.oCARD_LABELTextBox.Name = "oCARD_LABELTextBox";
             this.oCARD_LABELTextBox.Size = new System.Drawing.Size(54, 13);
             this.oCARD_LABELTextBox.TabIndex = 75;
-            // 
-            // bsQUEUE1
-            // 
-            this.bsQUEUE1.AllowNew = false;
-            this.bsQUEUE1.DataMember = "T_QUEUE";
-            this.bsQUEUE1.DataSource = this.dsSim;
             // 
             // dgvDevIO_W
             // 
@@ -1201,32 +1134,6 @@ namespace TASQSim
             this.dgvDevIO_W.Size = new System.Drawing.Size(240, 370);
             this.dgvDevIO_W.TabIndex = 83;
             this.dgvDevIO_W.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDevIO_W_CellDoubleClick);
-            // 
-            // iONAMEDataGridViewTextBoxColumn2
-            // 
-            this.iONAMEDataGridViewTextBoxColumn2.DataPropertyName = "IONAME";
-            this.iONAMEDataGridViewTextBoxColumn2.HeaderText = "IONAME";
-            this.iONAMEDataGridViewTextBoxColumn2.Name = "iONAMEDataGridViewTextBoxColumn2";
-            // 
-            // iOVALUEDataGridViewTextBoxColumn2
-            // 
-            this.iOVALUEDataGridViewTextBoxColumn2.DataPropertyName = "IOVALUE";
-            this.iOVALUEDataGridViewTextBoxColumn2.HeaderText = "IOVALUE";
-            this.iOVALUEDataGridViewTextBoxColumn2.Name = "iOVALUEDataGridViewTextBoxColumn2";
-            this.iOVALUEDataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // rEQWDataGridViewTextBoxColumn
-            // 
-            this.rEQWDataGridViewTextBoxColumn.DataPropertyName = "REQ_W";
-            this.rEQWDataGridViewTextBoxColumn.HeaderText = "RQW";
-            this.rEQWDataGridViewTextBoxColumn.Name = "rEQWDataGridViewTextBoxColumn";
-            this.rEQWDataGridViewTextBoxColumn.Width = 35;
-            // 
-            // bsDEVICEIO_W
-            // 
-            this.bsDEVICEIO_W.AllowNew = false;
-            this.bsDEVICEIO_W.DataMember = "DEVICEIO_W";
-            this.bsDEVICEIO_W.DataSource = this.dsSim;
             // 
             // fillToolStrip
             // 
@@ -1333,12 +1240,12 @@ namespace TASQSim
             // 
             this.tabBottom.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabBottom.Controls.Add(this.tpgSQLog);
+            this.tabBottom.Controls.Add(this.tpgCache);
+            this.tabBottom.Controls.Add(this.tpgQ);
+            this.tabBottom.Controls.Add(this.tpgORDER);
             this.tabBottom.Controls.Add(this.tpgLSQLog);
             this.tabBottom.Controls.Add(this.tpgIOLog2);
             this.tabBottom.Controls.Add(this.tpgIOLog);
-            this.tabBottom.Controls.Add(this.tpgQ);
-            this.tabBottom.Controls.Add(this.tpgORDER);
-            this.tabBottom.Controls.Add(this.tpgCache);
             this.tabBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabBottom.Location = new System.Drawing.Point(0, 215);
             this.tabBottom.Multiline = true;
@@ -1379,262 +1286,49 @@ namespace TASQSim
             this.QUEUE_SQ_LOGDataGridView.Size = new System.Drawing.Size(715, 536);
             this.QUEUE_SQ_LOGDataGridView.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn3
+            // tpgCache
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "LOGTIME";
-            dataGridViewCellStyle1.Format = "G";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn3.HeaderText = "LOGTIME";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 110;
+            this.tpgCache.Controls.Add(this.dgwCache);
+            this.tpgCache.Location = new System.Drawing.Point(23, 4);
+            this.tpgCache.Name = "tpgCache";
+            this.tpgCache.Size = new System.Drawing.Size(717, 538);
+            this.tpgCache.TabIndex = 7;
+            this.tpgCache.Text = "WebCache";
+            this.tpgCache.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn15
+            // dgwCache
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "SEQ";
-            this.dataGridViewTextBoxColumn15.HeaderText = "SEQ";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "LOGCAT";
-            this.dataGridViewTextBoxColumn19.HeaderText = "LOGCAT";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "LOGTXT";
-            this.dataGridViewTextBoxColumn20.HeaderText = "SEQ LOG";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 460;
-            // 
-            // bsSQLOG
-            // 
-            this.bsSQLOG.AllowNew = false;
-            this.bsSQLOG.DataMember = "QUEUE_SQ_LOG";
-            this.bsSQLOG.DataSource = this.dsSim;
-            // 
-            // tpgLSQLog
-            // 
-            this.tpgLSQLog.Controls.Add(this.dgwLSQLog);
-            this.tpgLSQLog.Location = new System.Drawing.Point(23, 4);
-            this.tpgLSQLog.Name = "tpgLSQLog";
-            this.tpgLSQLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgLSQLog.Size = new System.Drawing.Size(717, 538);
-            this.tpgLSQLog.TabIndex = 6;
-            this.tpgLSQLog.Text = "Loading SQ";
-            this.tpgLSQLog.UseVisualStyleBackColor = true;
-            // 
-            // dgwLSQLog
-            // 
-            this.dgwLSQLog.AutoGenerateColumns = false;
-            this.dgwLSQLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.dgwLSQLog.DataSource = this.bsLSQLog;
-            this.dgwLSQLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwLSQLog.Location = new System.Drawing.Point(3, 3);
-            this.dgwLSQLog.Margin = new System.Windows.Forms.Padding(1);
-            this.dgwLSQLog.Name = "dgwLSQLog";
-            this.dgwLSQLog.ReadOnly = true;
-            this.dgwLSQLog.RowHeadersWidth = 10;
-            this.dgwLSQLog.RowTemplate.Height = 18;
-            this.dgwLSQLog.Size = new System.Drawing.Size(711, 532);
-            this.dgwLSQLog.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "LOGTIME";
-            dataGridViewCellStyle2.Format = "G";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn1.HeaderText = "LOGTIME";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "SEQ";
-            this.dataGridViewTextBoxColumn2.HeaderText = "SEQ";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "LOGCAT";
-            this.dataGridViewTextBoxColumn4.HeaderText = "LOGCAT";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "LOGTXT";
-            this.dataGridViewTextBoxColumn5.HeaderText = "SEQ LOG";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 460;
-            // 
-            // bsLSQLog
-            // 
-            this.bsLSQLog.AllowNew = false;
-            this.bsLSQLog.DataMember = "LOADING_SQ_LOG";
-            this.bsLSQLog.DataSource = this.dsSim;
-            // 
-            // tpgIOLog2
-            // 
-            this.tpgIOLog2.Controls.Add(this.dEVICEIO_LOG2DataGridView);
-            this.tpgIOLog2.Location = new System.Drawing.Point(23, 4);
-            this.tpgIOLog2.Name = "tpgIOLog2";
-            this.tpgIOLog2.Padding = new System.Windows.Forms.Padding(1);
-            this.tpgIOLog2.Size = new System.Drawing.Size(717, 538);
-            this.tpgIOLog2.TabIndex = 3;
-            this.tpgIOLog2.Text = "IO Log";
-            this.tpgIOLog2.UseVisualStyleBackColor = true;
-            // 
-            // dEVICEIO_LOG2DataGridView
-            // 
-            this.dEVICEIO_LOG2DataGridView.AllowUserToAddRows = false;
-            this.dEVICEIO_LOG2DataGridView.AllowUserToDeleteRows = false;
-            this.dEVICEIO_LOG2DataGridView.AutoGenerateColumns = false;
-            this.dEVICEIO_LOG2DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn25,
-            this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28});
-            this.dEVICEIO_LOG2DataGridView.DataSource = this.bsIOLog2;
-            this.dEVICEIO_LOG2DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dEVICEIO_LOG2DataGridView.Location = new System.Drawing.Point(1, 1);
-            this.dEVICEIO_LOG2DataGridView.Name = "dEVICEIO_LOG2DataGridView";
-            this.dEVICEIO_LOG2DataGridView.ReadOnly = true;
-            this.dEVICEIO_LOG2DataGridView.RowHeadersWidth = 10;
-            this.dEVICEIO_LOG2DataGridView.RowTemplate.Height = 18;
-            this.dEVICEIO_LOG2DataGridView.Size = new System.Drawing.Size(715, 536);
-            this.dEVICEIO_LOG2DataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "LOGTIME";
-            dataGridViewCellStyle3.Format = "G";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn25.HeaderText = "LOGTIME";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            this.dataGridViewTextBoxColumn25.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.DataPropertyName = "SEQ";
-            this.dataGridViewTextBoxColumn26.HeaderText = "SEQ";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            this.dataGridViewTextBoxColumn26.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.DataPropertyName = "LOGCAT";
-            this.dataGridViewTextBoxColumn27.HeaderText = "LOGCAT";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.ReadOnly = true;
-            this.dataGridViewTextBoxColumn27.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.DataPropertyName = "LOGTXT";
-            this.dataGridViewTextBoxColumn28.HeaderText = "IO LOG";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.ReadOnly = true;
-            this.dataGridViewTextBoxColumn28.Width = 460;
-            // 
-            // bsIOLog2
-            // 
-            this.bsIOLog2.AllowNew = false;
-            this.bsIOLog2.DataMember = "DEVICEIO_LOG2";
-            this.bsIOLog2.DataSource = this.dsSim;
-            // 
-            // tpgIOLog
-            // 
-            this.tpgIOLog.AutoScroll = true;
-            this.tpgIOLog.Controls.Add(this.dEVICEIO_LOGDataGridView);
-            this.tpgIOLog.Location = new System.Drawing.Point(23, 4);
-            this.tpgIOLog.Name = "tpgIOLog";
-            this.tpgIOLog.Padding = new System.Windows.Forms.Padding(1);
-            this.tpgIOLog.Size = new System.Drawing.Size(717, 538);
-            this.tpgIOLog.TabIndex = 1;
-            this.tpgIOLog.Text = "OPCLink";
-            this.tpgIOLog.UseVisualStyleBackColor = true;
-            // 
-            // dEVICEIO_LOGDataGridView
-            // 
-            this.dEVICEIO_LOGDataGridView.AllowUserToAddRows = false;
-            this.dEVICEIO_LOGDataGridView.AllowUserToDeleteRows = false;
-            this.dEVICEIO_LOGDataGridView.AutoGenerateColumns = false;
-            this.dEVICEIO_LOGDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24});
-            this.dEVICEIO_LOGDataGridView.DataSource = this.bsIOLog;
-            this.dEVICEIO_LOGDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dEVICEIO_LOGDataGridView.Location = new System.Drawing.Point(1, 1);
-            this.dEVICEIO_LOGDataGridView.Name = "dEVICEIO_LOGDataGridView";
-            this.dEVICEIO_LOGDataGridView.ReadOnly = true;
-            this.dEVICEIO_LOGDataGridView.RowHeadersWidth = 10;
-            this.dEVICEIO_LOGDataGridView.RowTemplate.Height = 18;
-            this.dEVICEIO_LOGDataGridView.Size = new System.Drawing.Size(715, 536);
-            this.dEVICEIO_LOGDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "LOGTIME";
-            dataGridViewCellStyle4.Format = "G";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn21.HeaderText = "LOGTIME";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            this.dataGridViewTextBoxColumn21.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "SEQ";
-            this.dataGridViewTextBoxColumn22.HeaderText = "SEQ";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            this.dataGridViewTextBoxColumn22.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "LOGCAT";
-            this.dataGridViewTextBoxColumn23.HeaderText = "LOGCAT";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "LOGTXT";
-            this.dataGridViewTextBoxColumn24.HeaderText = "IO LOG";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            this.dataGridViewTextBoxColumn24.Width = 460;
-            // 
-            // bsIOLog
-            // 
-            this.bsIOLog.AllowNew = false;
-            this.bsIOLog.DataMember = "DEVICEIO_LOG";
-            this.bsIOLog.DataSource = this.dsSim;
+            this.dgwCache.AllowUserToAddRows = false;
+            this.dgwCache.AllowUserToDeleteRows = false;
+            this.dgwCache.AllowUserToOrderColumns = true;
+            this.dgwCache.AutoGenerateColumns = false;
+            this.dgwCache.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwCache.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.qSTATUSDataGridViewTextBoxColumn1,
+            this.qIDDataGridViewTextBoxColumn3,
+            this.oRDERCODEDataGridViewTextBoxColumn2,
+            this.cOMPANYDataGridViewTextBoxColumn,
+            this.dATEARRIVEDataGridViewTextBoxColumn1,
+            this.cARRIERDataGridViewTextBoxColumn,
+            this.fRONTLICENSEDataGridViewTextBoxColumn2,
+            this.rEARLICENSEDataGridViewTextBoxColumn2,
+            this.dRIVER1DataGridViewTextBoxColumn,
+            this.qNTYDataGridViewTextBoxColumn2,
+            this.dESTINATIONNAMEDataGridViewTextBoxColumn,
+            this.tAREWEIGHTDataGridViewTextBoxColumn,
+            this.mAXWEIGHTDataGridViewTextBoxColumn1,
+            this.vEHICLENAMEDataGridViewTextBoxColumn,
+            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1,
+            this.fULLTANKDataGridViewTextBoxColumn1});
+            this.dgwCache.DataSource = this.bsORDERSCACHE;
+            this.dgwCache.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgwCache.Location = new System.Drawing.Point(0, 0);
+            this.dgwCache.Name = "dgwCache";
+            this.dgwCache.ReadOnly = true;
+            this.dgwCache.RowHeadersWidth = 5;
+            this.dgwCache.RowTemplate.ReadOnly = true;
+            this.dgwCache.Size = new System.Drawing.Size(717, 538);
+            this.dgwCache.TabIndex = 0;
             // 
             // tpgQ
             // 
@@ -1680,6 +1374,390 @@ namespace TASQSim
             this.dgwQ.Size = new System.Drawing.Size(717, 538);
             this.dgwQ.TabIndex = 2;
             // 
+            // STDTAREWEIGHT
+            // 
+            this.STDTAREWEIGHT.DataPropertyName = "STDTAREWEIGHT";
+            this.STDTAREWEIGHT.HeaderText = "STDTAREWEIGHT";
+            this.STDTAREWEIGHT.Name = "STDTAREWEIGHT";
+            this.STDTAREWEIGHT.ReadOnly = true;
+            this.STDTAREWEIGHT.Width = 50;
+            // 
+            // MAXWEIGHT
+            // 
+            this.MAXWEIGHT.DataPropertyName = "MAXWEIGHT";
+            this.MAXWEIGHT.HeaderText = "MAXWEIGHT";
+            this.MAXWEIGHT.Name = "MAXWEIGHT";
+            this.MAXWEIGHT.ReadOnly = true;
+            this.MAXWEIGHT.Width = 50;
+            // 
+            // REGULATIONWEIGHT
+            // 
+            this.REGULATIONWEIGHT.DataPropertyName = "REGULATIONWEIGHT";
+            this.REGULATIONWEIGHT.HeaderText = "REGULATIONWEIGHT";
+            this.REGULATIONWEIGHT.Name = "REGULATIONWEIGHT";
+            this.REGULATIONWEIGHT.ReadOnly = true;
+            this.REGULATIONWEIGHT.Width = 50;
+            // 
+            // tpgORDER
+            // 
+            this.tpgORDER.Controls.Add(this.dgwO);
+            this.tpgORDER.Location = new System.Drawing.Point(23, 4);
+            this.tpgORDER.Name = "tpgORDER";
+            this.tpgORDER.Padding = new System.Windows.Forms.Padding(3);
+            this.tpgORDER.Size = new System.Drawing.Size(717, 538);
+            this.tpgORDER.TabIndex = 5;
+            this.tpgORDER.Text = "Order";
+            this.tpgORDER.UseVisualStyleBackColor = true;
+            // 
+            // dgwO
+            // 
+            this.dgwO.AllowUserToAddRows = false;
+            this.dgwO.AllowUserToDeleteRows = false;
+            this.dgwO.AllowUserToOrderColumns = true;
+            this.dgwO.AutoGenerateColumns = false;
+            this.dgwO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwO.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.qIDDataGridViewTextBoxColumn1,
+            this.oRDERIDDataGridViewTextBoxColumn,
+            this.oRDERCODEDataGridViewTextBoxColumn1,
+            this.dATEARRIVEDataGridViewTextBoxColumn,
+            this.sTATUSDataGridViewTextBoxColumn,
+            this.mETERIDDataGridViewTextBoxColumn1,
+            this.cARDIDDataGridViewTextBoxColumn,
+            this.fRONTLICENSEDataGridViewTextBoxColumn1,
+            this.rEARLICENSEDataGridViewTextBoxColumn1,
+            this.qNTYDataGridViewTextBoxColumn1,
+            this.sTDTAREWEIGHTDataGridViewTextBoxColumn,
+            this.mAXWEIGHTDataGridViewTextBoxColumn,
+            this.oRDERNODataGridViewTextBoxColumn,
+            this.gROSSDataGridViewTextBoxColumn,
+            this.nETDataGridViewTextBoxColumn,
+            this.lOADEDDataGridViewTextBoxColumn,
+            this.tAREDataGridViewTextBoxColumn,
+            this.tSTAREDataGridViewTextBoxColumn,
+            this.tSBSTARTDataGridViewTextBoxColumn,
+            this.tSBENDDataGridViewTextBoxColumn,
+            this.tSFINISHDataGridViewTextBoxColumn,
+            this.tSBOLDataGridViewTextBoxColumn,
+            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn,
+            this.wEIGHTSCALEDataGridViewTextBoxColumn,
+            this.cALCQUANTITYDataGridViewTextBoxColumn});
+            this.dgwO.DataSource = this.bsORDERS_WEB;
+            this.dgwO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgwO.Location = new System.Drawing.Point(3, 3);
+            this.dgwO.Name = "dgwO";
+            this.dgwO.ReadOnly = true;
+            this.dgwO.RowHeadersWidth = 5;
+            this.dgwO.Size = new System.Drawing.Size(711, 532);
+            this.dgwO.TabIndex = 0;
+            // 
+            // tpgLSQLog
+            // 
+            this.tpgLSQLog.Controls.Add(this.dgwLSQLog);
+            this.tpgLSQLog.Location = new System.Drawing.Point(23, 4);
+            this.tpgLSQLog.Name = "tpgLSQLog";
+            this.tpgLSQLog.Padding = new System.Windows.Forms.Padding(3);
+            this.tpgLSQLog.Size = new System.Drawing.Size(717, 538);
+            this.tpgLSQLog.TabIndex = 6;
+            this.tpgLSQLog.Text = "Loading SQ";
+            this.tpgLSQLog.UseVisualStyleBackColor = true;
+            // 
+            // dgwLSQLog
+            // 
+            this.dgwLSQLog.AutoGenerateColumns = false;
+            this.dgwLSQLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dgwLSQLog.DataSource = this.bsLSQLog;
+            this.dgwLSQLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgwLSQLog.Location = new System.Drawing.Point(3, 3);
+            this.dgwLSQLog.Margin = new System.Windows.Forms.Padding(1);
+            this.dgwLSQLog.Name = "dgwLSQLog";
+            this.dgwLSQLog.ReadOnly = true;
+            this.dgwLSQLog.RowHeadersWidth = 10;
+            this.dgwLSQLog.RowTemplate.Height = 18;
+            this.dgwLSQLog.Size = new System.Drawing.Size(711, 532);
+            this.dgwLSQLog.TabIndex = 1;
+            // 
+            // tpgIOLog2
+            // 
+            this.tpgIOLog2.Controls.Add(this.dEVICEIO_LOG2DataGridView);
+            this.tpgIOLog2.Location = new System.Drawing.Point(23, 4);
+            this.tpgIOLog2.Name = "tpgIOLog2";
+            this.tpgIOLog2.Padding = new System.Windows.Forms.Padding(1);
+            this.tpgIOLog2.Size = new System.Drawing.Size(717, 538);
+            this.tpgIOLog2.TabIndex = 3;
+            this.tpgIOLog2.Text = "IO Log";
+            this.tpgIOLog2.UseVisualStyleBackColor = true;
+            // 
+            // dEVICEIO_LOG2DataGridView
+            // 
+            this.dEVICEIO_LOG2DataGridView.AllowUserToAddRows = false;
+            this.dEVICEIO_LOG2DataGridView.AllowUserToDeleteRows = false;
+            this.dEVICEIO_LOG2DataGridView.AutoGenerateColumns = false;
+            this.dEVICEIO_LOG2DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28});
+            this.dEVICEIO_LOG2DataGridView.DataSource = this.bsIOLog2;
+            this.dEVICEIO_LOG2DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dEVICEIO_LOG2DataGridView.Location = new System.Drawing.Point(1, 1);
+            this.dEVICEIO_LOG2DataGridView.Name = "dEVICEIO_LOG2DataGridView";
+            this.dEVICEIO_LOG2DataGridView.ReadOnly = true;
+            this.dEVICEIO_LOG2DataGridView.RowHeadersWidth = 10;
+            this.dEVICEIO_LOG2DataGridView.RowTemplate.Height = 18;
+            this.dEVICEIO_LOG2DataGridView.Size = new System.Drawing.Size(715, 536);
+            this.dEVICEIO_LOG2DataGridView.TabIndex = 1;
+            // 
+            // tpgIOLog
+            // 
+            this.tpgIOLog.AutoScroll = true;
+            this.tpgIOLog.Controls.Add(this.dEVICEIO_LOGDataGridView);
+            this.tpgIOLog.Location = new System.Drawing.Point(23, 4);
+            this.tpgIOLog.Name = "tpgIOLog";
+            this.tpgIOLog.Padding = new System.Windows.Forms.Padding(1);
+            this.tpgIOLog.Size = new System.Drawing.Size(717, 538);
+            this.tpgIOLog.TabIndex = 1;
+            this.tpgIOLog.Text = "OPCLink";
+            this.tpgIOLog.UseVisualStyleBackColor = true;
+            // 
+            // dEVICEIO_LOGDataGridView
+            // 
+            this.dEVICEIO_LOGDataGridView.AllowUserToAddRows = false;
+            this.dEVICEIO_LOGDataGridView.AllowUserToDeleteRows = false;
+            this.dEVICEIO_LOGDataGridView.AutoGenerateColumns = false;
+            this.dEVICEIO_LOGDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24});
+            this.dEVICEIO_LOGDataGridView.DataSource = this.bsIOLog;
+            this.dEVICEIO_LOGDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dEVICEIO_LOGDataGridView.Location = new System.Drawing.Point(1, 1);
+            this.dEVICEIO_LOGDataGridView.Name = "dEVICEIO_LOGDataGridView";
+            this.dEVICEIO_LOGDataGridView.ReadOnly = true;
+            this.dEVICEIO_LOGDataGridView.RowHeadersWidth = 10;
+            this.dEVICEIO_LOGDataGridView.RowTemplate.Height = 18;
+            this.dEVICEIO_LOGDataGridView.Size = new System.Drawing.Size(715, 536);
+            this.dEVICEIO_LOGDataGridView.TabIndex = 0;
+            // 
+            // dgvDevIO_R
+            // 
+            this.dgvDevIO_R.AllowUserToAddRows = false;
+            this.dgvDevIO_R.AllowUserToDeleteRows = false;
+            this.dgvDevIO_R.AutoGenerateColumns = false;
+            this.dgvDevIO_R.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iONAMEDataGridViewTextBoxColumn1,
+            this.iOVALUEDataGridViewTextBoxColumn1,
+            this.rEADONDataGridViewTextBoxColumn1});
+            this.dgvDevIO_R.DataSource = this.bsDEVICEIO_R;
+            this.dgvDevIO_R.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDevIO_R.Location = new System.Drawing.Point(0, 0);
+            this.dgvDevIO_R.Margin = new System.Windows.Forms.Padding(1);
+            this.dgvDevIO_R.Name = "dgvDevIO_R";
+            this.dgvDevIO_R.RowHeadersWidth = 5;
+            this.dgvDevIO_R.RowTemplate.Height = 15;
+            this.dgvDevIO_R.Size = new System.Drawing.Size(240, 366);
+            this.dgvDevIO_R.TabIndex = 81;
+            this.dgvDevIO_R.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDevIO_R_CellDoubleClick);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panelRgh
+            // 
+            this.panelRgh.Controls.Add(this.dgvDevIO_R);
+            this.panelRgh.Controls.Add(this.dgvDevIO_W);
+            this.panelRgh.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelRgh.Location = new System.Drawing.Point(744, 25);
+            this.panelRgh.Name = "panelRgh";
+            this.panelRgh.Size = new System.Drawing.Size(240, 736);
+            this.panelRgh.TabIndex = 98;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "LOGTIME";
+            dataGridViewCellStyle5.Format = "G";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn3.HeaderText = "LOGTIME";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "SEQ";
+            this.dataGridViewTextBoxColumn15.HeaderText = "SEQ";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "LOGCAT";
+            this.dataGridViewTextBoxColumn19.HeaderText = "LOGCAT";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "LOGTXT";
+            this.dataGridViewTextBoxColumn20.HeaderText = "SEQ LOG";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 460;
+            // 
+            // bsSQLOG
+            // 
+            this.bsSQLOG.AllowNew = false;
+            this.bsSQLOG.DataMember = "QUEUE_SQ_LOG";
+            this.bsSQLOG.DataSource = this.dsSim;
+            // 
+            // dsSim
+            // 
+            this.dsSim.DataSetName = "dsSIM";
+            this.dsSim.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // qSTATUSDataGridViewTextBoxColumn1
+            // 
+            this.qSTATUSDataGridViewTextBoxColumn1.DataPropertyName = "Q_STATUS";
+            this.qSTATUSDataGridViewTextBoxColumn1.HeaderText = "Q_STATUS";
+            this.qSTATUSDataGridViewTextBoxColumn1.Name = "qSTATUSDataGridViewTextBoxColumn1";
+            this.qSTATUSDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.qSTATUSDataGridViewTextBoxColumn1.Width = 55;
+            // 
+            // qIDDataGridViewTextBoxColumn3
+            // 
+            this.qIDDataGridViewTextBoxColumn3.DataPropertyName = "Q_ID";
+            this.qIDDataGridViewTextBoxColumn3.HeaderText = "Q_ID";
+            this.qIDDataGridViewTextBoxColumn3.Name = "qIDDataGridViewTextBoxColumn3";
+            this.qIDDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.qIDDataGridViewTextBoxColumn3.Width = 35;
+            // 
+            // oRDERCODEDataGridViewTextBoxColumn2
+            // 
+            this.oRDERCODEDataGridViewTextBoxColumn2.DataPropertyName = "ORDER_CODE";
+            this.oRDERCODEDataGridViewTextBoxColumn2.HeaderText = "ORDER_CODE";
+            this.oRDERCODEDataGridViewTextBoxColumn2.Name = "oRDERCODEDataGridViewTextBoxColumn2";
+            this.oRDERCODEDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.oRDERCODEDataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // cOMPANYDataGridViewTextBoxColumn
+            // 
+            this.cOMPANYDataGridViewTextBoxColumn.DataPropertyName = "COMPANY";
+            this.cOMPANYDataGridViewTextBoxColumn.HeaderText = "COMPANY";
+            this.cOMPANYDataGridViewTextBoxColumn.Name = "cOMPANYDataGridViewTextBoxColumn";
+            this.cOMPANYDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cOMPANYDataGridViewTextBoxColumn.Width = 45;
+            // 
+            // dATEARRIVEDataGridViewTextBoxColumn1
+            // 
+            this.dATEARRIVEDataGridViewTextBoxColumn1.DataPropertyName = "DATEARRIVE";
+            this.dATEARRIVEDataGridViewTextBoxColumn1.HeaderText = "DATEARRIVE";
+            this.dATEARRIVEDataGridViewTextBoxColumn1.Name = "dATEARRIVEDataGridViewTextBoxColumn1";
+            this.dATEARRIVEDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dATEARRIVEDataGridViewTextBoxColumn1.Width = 65;
+            // 
+            // cARRIERDataGridViewTextBoxColumn
+            // 
+            this.cARRIERDataGridViewTextBoxColumn.DataPropertyName = "CARRIER";
+            this.cARRIERDataGridViewTextBoxColumn.HeaderText = "CARRIER";
+            this.cARRIERDataGridViewTextBoxColumn.Name = "cARRIERDataGridViewTextBoxColumn";
+            this.cARRIERDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cARRIERDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // fRONTLICENSEDataGridViewTextBoxColumn2
+            // 
+            this.fRONTLICENSEDataGridViewTextBoxColumn2.DataPropertyName = "FRONT_LICENSE";
+            this.fRONTLICENSEDataGridViewTextBoxColumn2.HeaderText = "FRONT_LICENSE";
+            this.fRONTLICENSEDataGridViewTextBoxColumn2.Name = "fRONTLICENSEDataGridViewTextBoxColumn2";
+            this.fRONTLICENSEDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.fRONTLICENSEDataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // rEARLICENSEDataGridViewTextBoxColumn2
+            // 
+            this.rEARLICENSEDataGridViewTextBoxColumn2.DataPropertyName = "REAR_LICENSE";
+            this.rEARLICENSEDataGridViewTextBoxColumn2.HeaderText = "REAR_LICENSE";
+            this.rEARLICENSEDataGridViewTextBoxColumn2.Name = "rEARLICENSEDataGridViewTextBoxColumn2";
+            this.rEARLICENSEDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.rEARLICENSEDataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // dRIVER1DataGridViewTextBoxColumn
+            // 
+            this.dRIVER1DataGridViewTextBoxColumn.DataPropertyName = "DRIVER1";
+            this.dRIVER1DataGridViewTextBoxColumn.HeaderText = "DRIVER1";
+            this.dRIVER1DataGridViewTextBoxColumn.Name = "dRIVER1DataGridViewTextBoxColumn";
+            this.dRIVER1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.dRIVER1DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // qNTYDataGridViewTextBoxColumn2
+            // 
+            this.qNTYDataGridViewTextBoxColumn2.DataPropertyName = "QNTY";
+            this.qNTYDataGridViewTextBoxColumn2.HeaderText = "QNTY";
+            this.qNTYDataGridViewTextBoxColumn2.Name = "qNTYDataGridViewTextBoxColumn2";
+            this.qNTYDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.qNTYDataGridViewTextBoxColumn2.Width = 50;
+            // 
+            // dESTINATIONNAMEDataGridViewTextBoxColumn
+            // 
+            this.dESTINATIONNAMEDataGridViewTextBoxColumn.DataPropertyName = "DESTINATION_NAME";
+            this.dESTINATIONNAMEDataGridViewTextBoxColumn.HeaderText = "DESTINATION_NAME";
+            this.dESTINATIONNAMEDataGridViewTextBoxColumn.Name = "dESTINATIONNAMEDataGridViewTextBoxColumn";
+            this.dESTINATIONNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tAREWEIGHTDataGridViewTextBoxColumn
+            // 
+            this.tAREWEIGHTDataGridViewTextBoxColumn.DataPropertyName = "TAREWEIGHT";
+            this.tAREWEIGHTDataGridViewTextBoxColumn.HeaderText = "TAREWEIGHT";
+            this.tAREWEIGHTDataGridViewTextBoxColumn.Name = "tAREWEIGHTDataGridViewTextBoxColumn";
+            this.tAREWEIGHTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tAREWEIGHTDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // mAXWEIGHTDataGridViewTextBoxColumn1
+            // 
+            this.mAXWEIGHTDataGridViewTextBoxColumn1.DataPropertyName = "MAXWEIGHT";
+            this.mAXWEIGHTDataGridViewTextBoxColumn1.HeaderText = "MAXWEIGHT";
+            this.mAXWEIGHTDataGridViewTextBoxColumn1.Name = "mAXWEIGHTDataGridViewTextBoxColumn1";
+            this.mAXWEIGHTDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.mAXWEIGHTDataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // vEHICLENAMEDataGridViewTextBoxColumn
+            // 
+            this.vEHICLENAMEDataGridViewTextBoxColumn.DataPropertyName = "VEHICLE_NAME";
+            this.vEHICLENAMEDataGridViewTextBoxColumn.HeaderText = "VEHICLE_NAME";
+            this.vEHICLENAMEDataGridViewTextBoxColumn.Name = "vEHICLENAMEDataGridViewTextBoxColumn";
+            this.vEHICLENAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vEHICLENAMEDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // rEGULATIONWEIGHTDataGridViewTextBoxColumn1
+            // 
+            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.DataPropertyName = "REGULATIONWEIGHT";
+            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.HeaderText = "REGULATIONWEIGHT";
+            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.Name = "rEGULATIONWEIGHTDataGridViewTextBoxColumn1";
+            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // fULLTANKDataGridViewTextBoxColumn1
+            // 
+            this.fULLTANKDataGridViewTextBoxColumn1.DataPropertyName = "FULLTANK";
+            this.fULLTANKDataGridViewTextBoxColumn1.HeaderText = "FULLTANK";
+            this.fULLTANKDataGridViewTextBoxColumn1.Name = "fULLTANKDataGridViewTextBoxColumn1";
+            this.fULLTANKDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.fULLTANKDataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // bsORDERSCACHE
+            // 
+            this.bsORDERSCACHE.AllowNew = false;
+            this.bsORDERSCACHE.DataMember = "T_ORDERS_CACHE";
+            this.bsORDERSCACHE.DataSource = this.dsSim;
+            // 
             // qIDDataGridViewTextBoxColumn
             // 
             this.qIDDataGridViewTextBoxColumn.DataPropertyName = "Q_ID";
@@ -1711,30 +1789,6 @@ namespace TASQSim
             this.dRYRUNDataGridViewTextBoxColumn.Name = "dRYRUNDataGridViewTextBoxColumn";
             this.dRYRUNDataGridViewTextBoxColumn.ReadOnly = true;
             this.dRYRUNDataGridViewTextBoxColumn.Width = 25;
-            // 
-            // STDTAREWEIGHT
-            // 
-            this.STDTAREWEIGHT.DataPropertyName = "STDTAREWEIGHT";
-            this.STDTAREWEIGHT.HeaderText = "STDTAREWEIGHT";
-            this.STDTAREWEIGHT.Name = "STDTAREWEIGHT";
-            this.STDTAREWEIGHT.ReadOnly = true;
-            this.STDTAREWEIGHT.Width = 50;
-            // 
-            // MAXWEIGHT
-            // 
-            this.MAXWEIGHT.DataPropertyName = "MAXWEIGHT";
-            this.MAXWEIGHT.HeaderText = "MAXWEIGHT";
-            this.MAXWEIGHT.Name = "MAXWEIGHT";
-            this.MAXWEIGHT.ReadOnly = true;
-            this.MAXWEIGHT.Width = 50;
-            // 
-            // REGULATIONWEIGHT
-            // 
-            this.REGULATIONWEIGHT.DataPropertyName = "REGULATIONWEIGHT";
-            this.REGULATIONWEIGHT.HeaderText = "REGULATIONWEIGHT";
-            this.REGULATIONWEIGHT.Name = "REGULATIONWEIGHT";
-            this.REGULATIONWEIGHT.ReadOnly = true;
-            this.REGULATIONWEIGHT.Width = 50;
             // 
             // wAITTMDataGridViewTextBoxColumn
             // 
@@ -1816,58 +1870,319 @@ namespace TASQSim
             this.tYPEDataGridViewTextBoxColumn.ReadOnly = true;
             this.tYPEDataGridViewTextBoxColumn.Width = 80;
             // 
-            // tpgORDER
+            // bsQUEUE1
             // 
-            this.tpgORDER.Controls.Add(this.dgwO);
-            this.tpgORDER.Location = new System.Drawing.Point(23, 4);
-            this.tpgORDER.Name = "tpgORDER";
-            this.tpgORDER.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgORDER.Size = new System.Drawing.Size(717, 538);
-            this.tpgORDER.TabIndex = 5;
-            this.tpgORDER.Text = "Order";
-            this.tpgORDER.UseVisualStyleBackColor = true;
+            this.bsQUEUE1.AllowNew = false;
+            this.bsQUEUE1.DataMember = "T_QUEUE";
+            this.bsQUEUE1.DataSource = this.dsSim;
             // 
-            // dgwO
+            // bsORDERS_WEB
             // 
-            this.dgwO.AllowUserToAddRows = false;
-            this.dgwO.AllowUserToDeleteRows = false;
-            this.dgwO.AllowUserToOrderColumns = true;
-            this.dgwO.AutoGenerateColumns = false;
-            this.dgwO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwO.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.oRDERIDDataGridViewTextBoxColumn,
-            this.oRDERCODEDataGridViewTextBoxColumn1,
-            this.dATEARRIVEDataGridViewTextBoxColumn,
-            this.fRONTLICENSEDataGridViewTextBoxColumn1,
-            this.rEARLICENSEDataGridViewTextBoxColumn1,
-            this.qNTYDataGridViewTextBoxColumn1,
-            this.sTDTAREWEIGHTDataGridViewTextBoxColumn,
-            this.mAXWEIGHTDataGridViewTextBoxColumn,
-            this.mETERIDDataGridViewTextBoxColumn1,
-            this.cARDIDDataGridViewTextBoxColumn,
-            this.sTATUSDataGridViewTextBoxColumn,
-            this.oRDERNODataGridViewTextBoxColumn,
-            this.gROSSDataGridViewTextBoxColumn,
-            this.nETDataGridViewTextBoxColumn,
-            this.lOADEDDataGridViewTextBoxColumn,
-            this.tAREDataGridViewTextBoxColumn,
-            this.tSTAREDataGridViewTextBoxColumn,
-            this.tSBSTARTDataGridViewTextBoxColumn,
-            this.tSBENDDataGridViewTextBoxColumn,
-            this.tSFINISHDataGridViewTextBoxColumn,
-            this.tSBOLDataGridViewTextBoxColumn,
-            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn,
-            this.wEIGHTSCALEDataGridViewTextBoxColumn,
-            this.cALCQUANTITYDataGridViewTextBoxColumn,
-            this.qIDDataGridViewTextBoxColumn1});
-            this.dgwO.DataSource = this.bsORDERS_WEB;
-            this.dgwO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwO.Location = new System.Drawing.Point(3, 3);
-            this.dgwO.Name = "dgwO";
-            this.dgwO.ReadOnly = true;
-            this.dgwO.RowHeadersWidth = 5;
-            this.dgwO.Size = new System.Drawing.Size(711, 532);
-            this.dgwO.TabIndex = 0;
+            this.bsORDERS_WEB.AllowNew = false;
+            this.bsORDERS_WEB.DataMember = "T_ORDERS_WEB";
+            this.bsORDERS_WEB.DataSource = this.dsSim;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "LOGTIME";
+            dataGridViewCellStyle6.Format = "G";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn1.HeaderText = "LOGTIME";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "SEQ";
+            this.dataGridViewTextBoxColumn2.HeaderText = "SEQ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "LOGCAT";
+            this.dataGridViewTextBoxColumn4.HeaderText = "LOGCAT";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "LOGTXT";
+            this.dataGridViewTextBoxColumn5.HeaderText = "SEQ LOG";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 460;
+            // 
+            // bsLSQLog
+            // 
+            this.bsLSQLog.AllowNew = false;
+            this.bsLSQLog.DataMember = "LOADING_SQ_LOG";
+            this.bsLSQLog.DataSource = this.dsSim;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "LOGTIME";
+            dataGridViewCellStyle7.Format = "G";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn25.HeaderText = "LOGTIME";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "SEQ";
+            this.dataGridViewTextBoxColumn26.HeaderText = "SEQ";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "LOGCAT";
+            this.dataGridViewTextBoxColumn27.HeaderText = "LOGCAT";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "LOGTXT";
+            this.dataGridViewTextBoxColumn28.HeaderText = "IO LOG";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Width = 460;
+            // 
+            // bsIOLog2
+            // 
+            this.bsIOLog2.AllowNew = false;
+            this.bsIOLog2.DataMember = "DEVICEIO_LOG2";
+            this.bsIOLog2.DataSource = this.dsSim;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "LOGTIME";
+            dataGridViewCellStyle8.Format = "G";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn21.HeaderText = "LOGTIME";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            this.dataGridViewTextBoxColumn21.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "SEQ";
+            this.dataGridViewTextBoxColumn22.HeaderText = "SEQ";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            this.dataGridViewTextBoxColumn22.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "LOGCAT";
+            this.dataGridViewTextBoxColumn23.HeaderText = "LOGCAT";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "LOGTXT";
+            this.dataGridViewTextBoxColumn24.HeaderText = "IO LOG";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.Width = 460;
+            // 
+            // bsIOLog
+            // 
+            this.bsIOLog.AllowNew = false;
+            this.bsIOLog.DataMember = "DEVICEIO_LOG";
+            this.bsIOLog.DataSource = this.dsSim;
+            // 
+            // mETERIDDataGridViewTextBoxColumn2
+            // 
+            this.mETERIDDataGridViewTextBoxColumn2.DataPropertyName = "METER_ID";
+            this.mETERIDDataGridViewTextBoxColumn2.HeaderText = "METER_ID";
+            this.mETERIDDataGridViewTextBoxColumn2.Name = "mETERIDDataGridViewTextBoxColumn2";
+            this.mETERIDDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.mETERIDDataGridViewTextBoxColumn2.Width = 20;
+            // 
+            // mTRNAMEDataGridViewTextBoxColumn
+            // 
+            this.mTRNAMEDataGridViewTextBoxColumn.DataPropertyName = "MTRNAME";
+            this.mTRNAMEDataGridViewTextBoxColumn.HeaderText = "MTRNAME";
+            this.mTRNAMEDataGridViewTextBoxColumn.Name = "mTRNAMEDataGridViewTextBoxColumn";
+            this.mTRNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mTRNAMEDataGridViewTextBoxColumn.Width = 20;
+            // 
+            // mAINTENANCEDataGridViewTextBoxColumn
+            // 
+            this.mAINTENANCEDataGridViewTextBoxColumn.DataPropertyName = "MAINTENANCE";
+            this.mAINTENANCEDataGridViewTextBoxColumn.HeaderText = "MAINTENANCE";
+            this.mAINTENANCEDataGridViewTextBoxColumn.Name = "mAINTENANCEDataGridViewTextBoxColumn";
+            this.mAINTENANCEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mAINTENANCEDataGridViewTextBoxColumn.Width = 25;
+            // 
+            // sTATUSDataGridViewTextBoxColumn1
+            // 
+            this.sTATUSDataGridViewTextBoxColumn1.DataPropertyName = "STATUS";
+            this.sTATUSDataGridViewTextBoxColumn1.HeaderText = "STATUS";
+            this.sTATUSDataGridViewTextBoxColumn1.Name = "sTATUSDataGridViewTextBoxColumn1";
+            this.sTATUSDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.sTATUSDataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // dRYRUNDataGridViewTextBoxColumn1
+            // 
+            this.dRYRUNDataGridViewTextBoxColumn1.DataPropertyName = "DRYRUN";
+            this.dRYRUNDataGridViewTextBoxColumn1.HeaderText = "DRYRUN";
+            this.dRYRUNDataGridViewTextBoxColumn1.Name = "dRYRUNDataGridViewTextBoxColumn1";
+            this.dRYRUNDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dRYRUNDataGridViewTextBoxColumn1.Width = 25;
+            // 
+            // qAUTODataGridViewTextBoxColumn
+            // 
+            this.qAUTODataGridViewTextBoxColumn.DataPropertyName = "Q_AUTO";
+            this.qAUTODataGridViewTextBoxColumn.HeaderText = "Q_AUTO";
+            this.qAUTODataGridViewTextBoxColumn.Name = "qAUTODataGridViewTextBoxColumn";
+            this.qAUTODataGridViewTextBoxColumn.ReadOnly = true;
+            this.qAUTODataGridViewTextBoxColumn.Width = 25;
+            // 
+            // qIDDataGridViewTextBoxColumn2
+            // 
+            this.qIDDataGridViewTextBoxColumn2.DataPropertyName = "Q_ID";
+            this.qIDDataGridViewTextBoxColumn2.HeaderText = "Q_ID";
+            this.qIDDataGridViewTextBoxColumn2.Name = "qIDDataGridViewTextBoxColumn2";
+            this.qIDDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.qIDDataGridViewTextBoxColumn2.Width = 30;
+            // 
+            // bsMeterQAll
+            // 
+            this.bsMeterQAll.AllowNew = false;
+            this.bsMeterQAll.DataMember = "T_METER_Q";
+            this.bsMeterQAll.DataSource = this.dsSim;
+            // 
+            // bsMeterQ
+            // 
+            this.bsMeterQ.AllowNew = false;
+            this.bsMeterQ.DataMember = "T_METER_Q";
+            this.bsMeterQ.DataSource = this.dsSim;
+            // 
+            // bsQueue
+            // 
+            this.bsQueue.AllowNew = false;
+            this.bsQueue.DataMember = "T_QUEUE";
+            this.bsQueue.DataSource = this.dsSim;
+            // 
+            // iONAMEDataGridViewTextBoxColumn1
+            // 
+            this.iONAMEDataGridViewTextBoxColumn1.DataPropertyName = "IONAME";
+            this.iONAMEDataGridViewTextBoxColumn1.HeaderText = "IONAME";
+            this.iONAMEDataGridViewTextBoxColumn1.Name = "iONAMEDataGridViewTextBoxColumn1";
+            this.iONAMEDataGridViewTextBoxColumn1.Width = 110;
+            // 
+            // iOVALUEDataGridViewTextBoxColumn1
+            // 
+            this.iOVALUEDataGridViewTextBoxColumn1.DataPropertyName = "IOVALUE";
+            this.iOVALUEDataGridViewTextBoxColumn1.HeaderText = "IOVALUE";
+            this.iOVALUEDataGridViewTextBoxColumn1.Name = "iOVALUEDataGridViewTextBoxColumn1";
+            this.iOVALUEDataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // rEADONDataGridViewTextBoxColumn1
+            // 
+            this.rEADONDataGridViewTextBoxColumn1.DataPropertyName = "READON";
+            this.rEADONDataGridViewTextBoxColumn1.HeaderText = "READON";
+            this.rEADONDataGridViewTextBoxColumn1.Name = "rEADONDataGridViewTextBoxColumn1";
+            this.rEADONDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // bsDEVICEIO_R
+            // 
+            this.bsDEVICEIO_R.AllowNew = false;
+            this.bsDEVICEIO_R.DataMember = "DEVICEIO_R";
+            this.bsDEVICEIO_R.DataSource = this.dsSim;
+            // 
+            // iONAMEDataGridViewTextBoxColumn2
+            // 
+            this.iONAMEDataGridViewTextBoxColumn2.DataPropertyName = "IONAME";
+            this.iONAMEDataGridViewTextBoxColumn2.HeaderText = "IONAME";
+            this.iONAMEDataGridViewTextBoxColumn2.Name = "iONAMEDataGridViewTextBoxColumn2";
+            // 
+            // iOVALUEDataGridViewTextBoxColumn2
+            // 
+            this.iOVALUEDataGridViewTextBoxColumn2.DataPropertyName = "IOVALUE";
+            this.iOVALUEDataGridViewTextBoxColumn2.HeaderText = "IOVALUE";
+            this.iOVALUEDataGridViewTextBoxColumn2.Name = "iOVALUEDataGridViewTextBoxColumn2";
+            this.iOVALUEDataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // rEQWDataGridViewTextBoxColumn
+            // 
+            this.rEQWDataGridViewTextBoxColumn.DataPropertyName = "REQ_W";
+            this.rEQWDataGridViewTextBoxColumn.HeaderText = "RQW";
+            this.rEQWDataGridViewTextBoxColumn.Name = "rEQWDataGridViewTextBoxColumn";
+            this.rEQWDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // bsDEVICEIO_W
+            // 
+            this.bsDEVICEIO_W.AllowNew = false;
+            this.bsDEVICEIO_W.DataMember = "DEVICEIO_W";
+            this.bsDEVICEIO_W.DataSource = this.dsSim;
+            // 
+            // taSQLOG
+            // 
+            this.taSQLOG.ClearBeforeFill = true;
+            // 
+            // taIOLog
+            // 
+            this.taIOLog.ClearBeforeFill = true;
+            // 
+            // taDevIO_R
+            // 
+            this.taDevIO_R.ClearBeforeFill = true;
+            // 
+            // taDevIO_W
+            // 
+            this.taDevIO_W.ClearBeforeFill = true;
+            // 
+            // taIOLog2
+            // 
+            this.taIOLog2.ClearBeforeFill = true;
+            // 
+            // taMETER_Q
+            // 
+            this.taMETER_Q.ClearBeforeFill = true;
+            // 
+            // taQUEUE
+            // 
+            this.taQUEUE.ClearBeforeFill = true;
+            // 
+            // taQUEUE1
+            // 
+            this.taQUEUE1.ClearBeforeFill = true;
+            // 
+            // taORDERS_WEB
+            // 
+            this.taORDERS_WEB.ClearBeforeFill = true;
+            // 
+            // taLSQLog
+            // 
+            this.taLSQLog.ClearBeforeFill = true;
+            // 
+            // taORDERSCACHE
+            // 
+            this.taORDERSCACHE.ClearBeforeFill = true;
+            // 
+            // qIDDataGridViewTextBoxColumn1
+            // 
+            this.qIDDataGridViewTextBoxColumn1.DataPropertyName = "Q_ID";
+            this.qIDDataGridViewTextBoxColumn1.HeaderText = "Q_ID";
+            this.qIDDataGridViewTextBoxColumn1.Name = "qIDDataGridViewTextBoxColumn1";
+            this.qIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.qIDDataGridViewTextBoxColumn1.Width = 40;
             // 
             // oRDERIDDataGridViewTextBoxColumn
             // 
@@ -1875,7 +2190,7 @@ namespace TASQSim
             this.oRDERIDDataGridViewTextBoxColumn.HeaderText = "ORDER_ID";
             this.oRDERIDDataGridViewTextBoxColumn.Name = "oRDERIDDataGridViewTextBoxColumn";
             this.oRDERIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.oRDERIDDataGridViewTextBoxColumn.Width = 50;
+            this.oRDERIDDataGridViewTextBoxColumn.Width = 40;
             // 
             // oRDERCODEDataGridViewTextBoxColumn1
             // 
@@ -1891,7 +2206,31 @@ namespace TASQSim
             this.dATEARRIVEDataGridViewTextBoxColumn.HeaderText = "DATEARRIVE";
             this.dATEARRIVEDataGridViewTextBoxColumn.Name = "dATEARRIVEDataGridViewTextBoxColumn";
             this.dATEARRIVEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dATEARRIVEDataGridViewTextBoxColumn.Width = 50;
+            this.dATEARRIVEDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // sTATUSDataGridViewTextBoxColumn
+            // 
+            this.sTATUSDataGridViewTextBoxColumn.DataPropertyName = "STATUS";
+            this.sTATUSDataGridViewTextBoxColumn.HeaderText = "STATUS";
+            this.sTATUSDataGridViewTextBoxColumn.Name = "sTATUSDataGridViewTextBoxColumn";
+            this.sTATUSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sTATUSDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // mETERIDDataGridViewTextBoxColumn1
+            // 
+            this.mETERIDDataGridViewTextBoxColumn1.DataPropertyName = "METER_ID";
+            this.mETERIDDataGridViewTextBoxColumn1.HeaderText = "METER_ID";
+            this.mETERIDDataGridViewTextBoxColumn1.Name = "mETERIDDataGridViewTextBoxColumn1";
+            this.mETERIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.mETERIDDataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // cARDIDDataGridViewTextBoxColumn
+            // 
+            this.cARDIDDataGridViewTextBoxColumn.DataPropertyName = "CARD_ID";
+            this.cARDIDDataGridViewTextBoxColumn.HeaderText = "CARD_ID";
+            this.cARDIDDataGridViewTextBoxColumn.Name = "cARDIDDataGridViewTextBoxColumn";
+            this.cARDIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cARDIDDataGridViewTextBoxColumn.Width = 30;
             // 
             // fRONTLICENSEDataGridViewTextBoxColumn1
             // 
@@ -1932,30 +2271,6 @@ namespace TASQSim
             this.mAXWEIGHTDataGridViewTextBoxColumn.Name = "mAXWEIGHTDataGridViewTextBoxColumn";
             this.mAXWEIGHTDataGridViewTextBoxColumn.ReadOnly = true;
             this.mAXWEIGHTDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // mETERIDDataGridViewTextBoxColumn1
-            // 
-            this.mETERIDDataGridViewTextBoxColumn1.DataPropertyName = "METER_ID";
-            this.mETERIDDataGridViewTextBoxColumn1.HeaderText = "METER_ID";
-            this.mETERIDDataGridViewTextBoxColumn1.Name = "mETERIDDataGridViewTextBoxColumn1";
-            this.mETERIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.mETERIDDataGridViewTextBoxColumn1.Width = 30;
-            // 
-            // cARDIDDataGridViewTextBoxColumn
-            // 
-            this.cARDIDDataGridViewTextBoxColumn.DataPropertyName = "CARD_ID";
-            this.cARDIDDataGridViewTextBoxColumn.HeaderText = "CARD_ID";
-            this.cARDIDDataGridViewTextBoxColumn.Name = "cARDIDDataGridViewTextBoxColumn";
-            this.cARDIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cARDIDDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // sTATUSDataGridViewTextBoxColumn
-            // 
-            this.sTATUSDataGridViewTextBoxColumn.DataPropertyName = "STATUS";
-            this.sTATUSDataGridViewTextBoxColumn.HeaderText = "STATUS";
-            this.sTATUSDataGridViewTextBoxColumn.Name = "sTATUSDataGridViewTextBoxColumn";
-            this.sTATUSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sTATUSDataGridViewTextBoxColumn.Width = 50;
             // 
             // oRDERNODataGridViewTextBoxColumn
             // 
@@ -2061,257 +2376,75 @@ namespace TASQSim
             this.cALCQUANTITYDataGridViewTextBoxColumn.ReadOnly = true;
             this.cALCQUANTITYDataGridViewTextBoxColumn.Width = 50;
             // 
-            // qIDDataGridViewTextBoxColumn1
-            // 
-            this.qIDDataGridViewTextBoxColumn1.DataPropertyName = "Q_ID";
-            this.qIDDataGridViewTextBoxColumn1.HeaderText = "Q_ID";
-            this.qIDDataGridViewTextBoxColumn1.Name = "qIDDataGridViewTextBoxColumn1";
-            this.qIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.qIDDataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // bsORDERS_WEB
-            // 
-            this.bsORDERS_WEB.AllowNew = false;
-            this.bsORDERS_WEB.DataMember = "T_ORDERS_WEB";
-            this.bsORDERS_WEB.DataSource = this.dsSim;
-            // 
-            // tpgCache
-            // 
-            this.tpgCache.Controls.Add(this.dgwCache);
-            this.tpgCache.Location = new System.Drawing.Point(23, 4);
-            this.tpgCache.Name = "tpgCache";
-            this.tpgCache.Size = new System.Drawing.Size(717, 538);
-            this.tpgCache.TabIndex = 7;
-            this.tpgCache.Text = "WebCache";
-            this.tpgCache.UseVisualStyleBackColor = true;
-            // 
-            // dgwCache
-            // 
-            this.dgwCache.AllowUserToAddRows = false;
-            this.dgwCache.AllowUserToDeleteRows = false;
-            this.dgwCache.AllowUserToOrderColumns = true;
-            this.dgwCache.AutoGenerateColumns = false;
-            this.dgwCache.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwCache.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.oRDERIDDataGridViewTextBoxColumn1,
-            this.CARRIER,
-            this.oRDERCODEDataGridViewTextBoxColumn2,
-            this.fRONTLICENSEDataGridViewTextBoxColumn2,
-            this.rEARLICENSEDataGridViewTextBoxColumn2,
-            this.qNTYDataGridViewTextBoxColumn2,
-            this.tAREWEIGHTDataGridViewTextBoxColumn,
-            this.mAXWEIGHTDataGridViewTextBoxColumn1,
-            this.vEHICLENAMEDataGridViewTextBoxColumn,
-            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1,
-            this.fULLTANKDataGridViewTextBoxColumn1});
-            this.dgwCache.DataSource = this.bsORDERSCACHE;
-            this.dgwCache.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwCache.Location = new System.Drawing.Point(0, 0);
-            this.dgwCache.Name = "dgwCache";
-            this.dgwCache.ReadOnly = true;
-            this.dgwCache.RowHeadersWidth = 5;
-            this.dgwCache.RowTemplate.ReadOnly = true;
-            this.dgwCache.Size = new System.Drawing.Size(717, 538);
-            this.dgwCache.TabIndex = 0;
-            // 
-            // oRDERIDDataGridViewTextBoxColumn1
-            // 
-            this.oRDERIDDataGridViewTextBoxColumn1.DataPropertyName = "ORDER_ID";
-            this.oRDERIDDataGridViewTextBoxColumn1.HeaderText = "ORDER_ID";
-            this.oRDERIDDataGridViewTextBoxColumn1.Name = "oRDERIDDataGridViewTextBoxColumn1";
-            this.oRDERIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.oRDERIDDataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // CARRIER
-            // 
-            this.CARRIER.DataPropertyName = "CARRIER";
-            this.CARRIER.HeaderText = "CARRIER";
-            this.CARRIER.Name = "CARRIER";
-            this.CARRIER.ReadOnly = true;
-            this.CARRIER.Width = 80;
-            // 
-            // oRDERCODEDataGridViewTextBoxColumn2
-            // 
-            this.oRDERCODEDataGridViewTextBoxColumn2.DataPropertyName = "ORDER_CODE";
-            this.oRDERCODEDataGridViewTextBoxColumn2.HeaderText = "ORDER_CODE";
-            this.oRDERCODEDataGridViewTextBoxColumn2.Name = "oRDERCODEDataGridViewTextBoxColumn2";
-            this.oRDERCODEDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.oRDERCODEDataGridViewTextBoxColumn2.Width = 60;
-            // 
-            // fRONTLICENSEDataGridViewTextBoxColumn2
-            // 
-            this.fRONTLICENSEDataGridViewTextBoxColumn2.DataPropertyName = "FRONT_LICENSE";
-            this.fRONTLICENSEDataGridViewTextBoxColumn2.HeaderText = "FRONT_LICENSE";
-            this.fRONTLICENSEDataGridViewTextBoxColumn2.Name = "fRONTLICENSEDataGridViewTextBoxColumn2";
-            this.fRONTLICENSEDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.fRONTLICENSEDataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // rEARLICENSEDataGridViewTextBoxColumn2
-            // 
-            this.rEARLICENSEDataGridViewTextBoxColumn2.DataPropertyName = "REAR_LICENSE";
-            this.rEARLICENSEDataGridViewTextBoxColumn2.HeaderText = "REAR_LICENSE";
-            this.rEARLICENSEDataGridViewTextBoxColumn2.Name = "rEARLICENSEDataGridViewTextBoxColumn2";
-            this.rEARLICENSEDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.rEARLICENSEDataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // qNTYDataGridViewTextBoxColumn2
-            // 
-            this.qNTYDataGridViewTextBoxColumn2.DataPropertyName = "QNTY";
-            this.qNTYDataGridViewTextBoxColumn2.HeaderText = "QNTY";
-            this.qNTYDataGridViewTextBoxColumn2.Name = "qNTYDataGridViewTextBoxColumn2";
-            this.qNTYDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.qNTYDataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // tAREWEIGHTDataGridViewTextBoxColumn
-            // 
-            this.tAREWEIGHTDataGridViewTextBoxColumn.DataPropertyName = "TAREWEIGHT";
-            this.tAREWEIGHTDataGridViewTextBoxColumn.HeaderText = "TAREWEIGHT";
-            this.tAREWEIGHTDataGridViewTextBoxColumn.Name = "tAREWEIGHTDataGridViewTextBoxColumn";
-            this.tAREWEIGHTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tAREWEIGHTDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // mAXWEIGHTDataGridViewTextBoxColumn1
-            // 
-            this.mAXWEIGHTDataGridViewTextBoxColumn1.DataPropertyName = "MAXWEIGHT";
-            this.mAXWEIGHTDataGridViewTextBoxColumn1.HeaderText = "MAXWEIGHT";
-            this.mAXWEIGHTDataGridViewTextBoxColumn1.Name = "mAXWEIGHTDataGridViewTextBoxColumn1";
-            this.mAXWEIGHTDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.mAXWEIGHTDataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // vEHICLENAMEDataGridViewTextBoxColumn
-            // 
-            this.vEHICLENAMEDataGridViewTextBoxColumn.DataPropertyName = "VEHICLE_NAME";
-            this.vEHICLENAMEDataGridViewTextBoxColumn.HeaderText = "VEHICLE_NAME";
-            this.vEHICLENAMEDataGridViewTextBoxColumn.Name = "vEHICLENAMEDataGridViewTextBoxColumn";
-            this.vEHICLENAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rEGULATIONWEIGHTDataGridViewTextBoxColumn1
-            // 
-            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.DataPropertyName = "REGULATIONWEIGHT";
-            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.HeaderText = "REGULATIONWEIGHT";
-            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.Name = "rEGULATIONWEIGHTDataGridViewTextBoxColumn1";
-            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.rEGULATIONWEIGHTDataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // fULLTANKDataGridViewTextBoxColumn1
-            // 
-            this.fULLTANKDataGridViewTextBoxColumn1.DataPropertyName = "FULLTANK";
-            this.fULLTANKDataGridViewTextBoxColumn1.HeaderText = "FULLTANK";
-            this.fULLTANKDataGridViewTextBoxColumn1.Name = "fULLTANKDataGridViewTextBoxColumn1";
-            this.fULLTANKDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.fULLTANKDataGridViewTextBoxColumn1.Width = 40;
-            // 
-            // bsORDERSCACHE
-            // 
-            this.bsORDERSCACHE.AllowNew = false;
-            this.bsORDERSCACHE.DataMember = "T_ORDERS_CACHE";
-            this.bsORDERSCACHE.DataSource = this.dsSim;
-            // 
-            // dgvDevIO_R
-            // 
-            this.dgvDevIO_R.AllowUserToAddRows = false;
-            this.dgvDevIO_R.AllowUserToDeleteRows = false;
-            this.dgvDevIO_R.AutoGenerateColumns = false;
-            this.dgvDevIO_R.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iONAMEDataGridViewTextBoxColumn1,
-            this.iOVALUEDataGridViewTextBoxColumn1,
-            this.rEADONDataGridViewTextBoxColumn1});
-            this.dgvDevIO_R.DataSource = this.bsDEVICEIO_R;
-            this.dgvDevIO_R.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDevIO_R.Location = new System.Drawing.Point(0, 0);
-            this.dgvDevIO_R.Margin = new System.Windows.Forms.Padding(1);
-            this.dgvDevIO_R.Name = "dgvDevIO_R";
-            this.dgvDevIO_R.RowHeadersWidth = 5;
-            this.dgvDevIO_R.RowTemplate.Height = 15;
-            this.dgvDevIO_R.Size = new System.Drawing.Size(240, 366);
-            this.dgvDevIO_R.TabIndex = 81;
-            this.dgvDevIO_R.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDevIO_R_CellDoubleClick);
-            // 
-            // iONAMEDataGridViewTextBoxColumn1
-            // 
-            this.iONAMEDataGridViewTextBoxColumn1.DataPropertyName = "IONAME";
-            this.iONAMEDataGridViewTextBoxColumn1.HeaderText = "IONAME";
-            this.iONAMEDataGridViewTextBoxColumn1.Name = "iONAMEDataGridViewTextBoxColumn1";
-            this.iONAMEDataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // iOVALUEDataGridViewTextBoxColumn1
-            // 
-            this.iOVALUEDataGridViewTextBoxColumn1.DataPropertyName = "IOVALUE";
-            this.iOVALUEDataGridViewTextBoxColumn1.HeaderText = "IOVALUE";
-            this.iOVALUEDataGridViewTextBoxColumn1.Name = "iOVALUEDataGridViewTextBoxColumn1";
-            this.iOVALUEDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // rEADONDataGridViewTextBoxColumn1
-            // 
-            this.rEADONDataGridViewTextBoxColumn1.DataPropertyName = "READON";
-            this.rEADONDataGridViewTextBoxColumn1.HeaderText = "READON";
-            this.rEADONDataGridViewTextBoxColumn1.Name = "rEADONDataGridViewTextBoxColumn1";
-            this.rEADONDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // bsDEVICEIO_R
-            // 
-            this.bsDEVICEIO_R.AllowNew = false;
-            this.bsDEVICEIO_R.DataMember = "DEVICEIO_R";
-            this.bsDEVICEIO_R.DataSource = this.dsSim;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 2000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // panelRgh
-            // 
-            this.panelRgh.Controls.Add(this.dgvDevIO_R);
-            this.panelRgh.Controls.Add(this.dgvDevIO_W);
-            this.panelRgh.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRgh.Location = new System.Drawing.Point(744, 25);
-            this.panelRgh.Name = "panelRgh";
-            this.panelRgh.Size = new System.Drawing.Size(240, 736);
-            this.panelRgh.TabIndex = 98;
-            // 
-            // taSQLOG
-            // 
-            this.taSQLOG.ClearBeforeFill = true;
-            // 
-            // taIOLog
-            // 
-            this.taIOLog.ClearBeforeFill = true;
-            // 
-            // taDevIO_R
-            // 
-            this.taDevIO_R.ClearBeforeFill = true;
-            // 
-            // taDevIO_W
-            // 
-            this.taDevIO_W.ClearBeforeFill = true;
-            // 
-            // taIOLog2
-            // 
-            this.taIOLog2.ClearBeforeFill = true;
-            // 
-            // taMETER_Q
-            // 
-            this.taMETER_Q.ClearBeforeFill = true;
-            // 
-            // taQUEUE
-            // 
-            this.taQUEUE.ClearBeforeFill = true;
-            // 
-            // taQUEUE1
-            // 
-            this.taQUEUE1.ClearBeforeFill = true;
-            // 
-            // taORDERS_WEB
-            // 
-            this.taORDERS_WEB.ClearBeforeFill = true;
-            // 
-            // taLSQLog
-            // 
-            this.taLSQLog.ClearBeforeFill = true;
-            // 
-            // taORDERSCACHE
-            // 
-            this.taORDERSCACHE.ClearBeforeFill = true;
+            // btnSwMain
+            // 
+            this.btnSwMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwMain.Location = new System.Drawing.Point(138, 18);
+            this.btnSwMain.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSwMain.Name = "btnSwMain";
+            this.btnSwMain.Size = new System.Drawing.Size(52, 16);
+            this.btnSwMain.TabIndex = 96;
+            this.btnSwMain.Text = "Sw Main";
+            this.btnSwMain.UseVisualStyleBackColor = true;
+            this.btnSwMain.Click += new System.EventHandler(this.btnSwMain_Click);
+            // 
+            // btnSwAuto
+            // 
+            this.btnSwAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwAuto.Location = new System.Drawing.Point(138, 35);
+            this.btnSwAuto.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSwAuto.Name = "btnSwAuto";
+            this.btnSwAuto.Size = new System.Drawing.Size(52, 16);
+            this.btnSwAuto.TabIndex = 96;
+            this.btnSwAuto.Text = "Sw Auto";
+            this.btnSwAuto.UseVisualStyleBackColor = true;
+            this.btnSwAuto.Click += new System.EventHandler(this.btnSwAuto_Click);
+            // 
+            // btnSwDry
+            // 
+            this.btnSwDry.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwDry.Location = new System.Drawing.Point(138, 52);
+            this.btnSwDry.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSwDry.Name = "btnSwDry";
+            this.btnSwDry.Size = new System.Drawing.Size(52, 16);
+            this.btnSwDry.TabIndex = 96;
+            this.btnSwDry.Text = "Sw Dry";
+            this.btnSwDry.UseVisualStyleBackColor = true;
+            this.btnSwDry.Click += new System.EventHandler(this.btnSwDry_Click);
+            // 
+            // btnL2K
+            // 
+            this.btnL2K.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnL2K.Location = new System.Drawing.Point(515, 144);
+            this.btnL2K.Margin = new System.Windows.Forms.Padding(1);
+            this.btnL2K.Name = "btnL2K";
+            this.btnL2K.Size = new System.Drawing.Size(44, 21);
+            this.btnL2K.TabIndex = 96;
+            this.btnL2K.Text = "W+2K";
+            this.btnL2K.UseVisualStyleBackColor = true;
+            this.btnL2K.Click += new System.EventHandler(this.btnL2K_Click);
+            // 
+            // chk1KLPM
+            // 
+            this.chk1KLPM.AutoSize = true;
+            this.chk1KLPM.Location = new System.Drawing.Point(562, 145);
+            this.chk1KLPM.Name = "chk1KLPM";
+            this.chk1KLPM.Size = new System.Drawing.Size(54, 17);
+            this.chk1KLPM.TabIndex = 98;
+            this.chk1KLPM.Text = "1klpm";
+            this.chk1KLPM.UseVisualStyleBackColor = true;
+            this.chk1KLPM.CheckedChanged += new System.EventHandler(this.chk1KLPM_CheckedChanged);
+            // 
+            // chk2KLPM
+            // 
+            this.chk2KLPM.AutoSize = true;
+            this.chk2KLPM.Location = new System.Drawing.Point(621, 145);
+            this.chk2KLPM.Name = "chk2KLPM";
+            this.chk2KLPM.Size = new System.Drawing.Size(54, 17);
+            this.chk2KLPM.TabIndex = 98;
+            this.chk2KLPM.Text = "2klpm";
+            this.chk2KLPM.UseVisualStyleBackColor = true;
+            this.chk2KLPM.CheckedChanged += new System.EventHandler(this.chk2KLPM_CheckedChanged);
             // 
             // frmMain
             // 
@@ -2332,39 +2465,39 @@ namespace TASQSim
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMeterQAll)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMeterQAll)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsSim)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMeterQ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsQueue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsQUEUE1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevIO_W)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDEVICEIO_W)).EndInit();
             this.fillToolStrip.ResumeLayout(false);
             this.fillToolStrip.PerformLayout();
             this.tabBottom.ResumeLayout(false);
             this.tpgSQLog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.QUEUE_SQ_LOGDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSQLOG)).EndInit();
-            this.tpgLSQLog.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwLSQLog)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLSQLog)).EndInit();
-            this.tpgIOLog2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dEVICEIO_LOG2DataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsIOLog2)).EndInit();
-            this.tpgIOLog.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dEVICEIO_LOGDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsIOLog)).EndInit();
+            this.tpgCache.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwCache)).EndInit();
             this.tpgQ.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwQ)).EndInit();
             this.tpgORDER.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsORDERS_WEB)).EndInit();
-            this.tpgCache.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwCache)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsORDERSCACHE)).EndInit();
+            this.tpgLSQLog.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwLSQLog)).EndInit();
+            this.tpgIOLog2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dEVICEIO_LOG2DataGridView)).EndInit();
+            this.tpgIOLog.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dEVICEIO_LOGDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevIO_R)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDEVICEIO_R)).EndInit();
             this.panelRgh.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsSQLOG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsSim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsORDERSCACHE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQUEUE1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsORDERS_WEB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLSQLog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsIOLog2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsIOLog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMeterQAll)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMeterQ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQueue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDEVICEIO_R)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDEVICEIO_W)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2378,18 +2511,18 @@ namespace TASQSim
 		private System.Windows.Forms.Panel panelTop;
 		private System.Windows.Forms.TextBox bAYIDTextBox;
 		private System.Windows.Forms.TextBox dESCRIPTIONTextBox;
-		private System.Windows.Forms.TextBox lOADINGMODETextBox;
-		private System.Windows.Forms.TextBox oRDER_IDTextBox;
+		private System.Windows.Forms.TextBox tbMain;
+		private System.Windows.Forms.TextBox tbAuto;
 		private System.Windows.Forms.TextBox bATCH_IDTextBox;
 		private System.Windows.Forms.TextBox bATCH_QNTYTextBox;
 		private System.Windows.Forms.TextBox cARD_LABELTextBox;
 		private System.Windows.Forms.TextBox tM_CHECKINTextBox;
-		private System.Windows.Forms.TextBox lICPLATETextBox;
+		private System.Windows.Forms.TextBox tbDry;
 		private System.Windows.Forms.TextBox sTIMERTextBox;
 		private System.Windows.Forms.TextBox mSG1TextBox;
 		private System.Windows.Forms.TextBox mSG2TextBox;
 		private System.Windows.Forms.TextBox aLERTTextBox;
-		private System.Windows.Forms.TextBox oRDER_QNTYTextBox;
+		private System.Windows.Forms.TextBox tbStatus;
 		private System.Windows.Forms.TextBox dEBUG_MSGTextBox;
 		private System.Windows.Forms.TextBox uSTR4TextBox;
 		private System.Windows.Forms.TextBox pRVBATCHIDTextBox;
@@ -2492,31 +2625,6 @@ namespace TASQSim
         private System.Windows.Forms.DataGridView dgwO;
         private System.Windows.Forms.BindingSource bsORDERS_WEB;
         private dsSIMTableAdapters.T_ORDERS_WEBTableAdapter taORDERS_WEB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oRDERIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oRDERCODEDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dATEARRIVEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fRONTLICENSEDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rEARLICENSEDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qNTYDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTDTAREWEIGHTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mAXWEIGHTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mETERIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cARDIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTATUSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oRDERNODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gROSSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nETDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lOADEDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tAREDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tSTAREDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tSBSTARTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tSBENDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tSFINISHDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tSBOLDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rEGULATIONWEIGHTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wEIGHTSCALEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cALCQUANTITYDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridView dgwMeterQAll;
         private System.Windows.Forms.TabPage tpgLSQLog;
         private System.Windows.Forms.DataGridView dgwLSQLog;
@@ -2546,17 +2654,54 @@ namespace TASQSim
         private System.Windows.Forms.BindingSource bsORDERSCACHE;
         private dsSIMTableAdapters.T_ORDERS_CACHETableAdapter taORDERSCACHE;
         private System.Windows.Forms.DataGridViewTextBoxColumn oRDERIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CARRIER;
+        private System.Windows.Forms.TextBox tbStep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qSTATUSDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qIDDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn oRDERCODEDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cOMPANYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dATEARRIVEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cARRIERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fRONTLICENSEDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn rEARLICENSEDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dRIVER1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qNTYDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dESTINATIONNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tAREWEIGHTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mAXWEIGHTDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn vEHICLENAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rEGULATIONWEIGHTDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fULLTANKDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.TextBox tbStep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oRDERIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oRDERCODEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dATEARRIVEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTATUSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mETERIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cARDIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fRONTLICENSEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rEARLICENSEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qNTYDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sTDTAREWEIGHTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mAXWEIGHTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oRDERNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gROSSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nETDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lOADEDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tAREDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tSTAREDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tSBSTARTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tSBENDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tSFINISHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tSBOLDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rEGULATIONWEIGHTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wEIGHTSCALEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cALCQUANTITYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnSwDry;
+        private System.Windows.Forms.Button btnSwAuto;
+        private System.Windows.Forms.Button btnSwMain;
+        private System.Windows.Forms.Button btnL2K;
+        private System.Windows.Forms.CheckBox chk1KLPM;
+        private System.Windows.Forms.CheckBox chk2KLPM;
     }
 }
 
