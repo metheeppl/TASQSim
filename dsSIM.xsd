@@ -464,11 +464,12 @@ ORDER BY SEQ DESC</CommandText>
             <MainSource>
               <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Q.Q_ID, Q.Q_STATUS, C.ORDER_CODE, C.COMPANY, C.DATEARRIVE, C.CARRIER, C.FRONT_LICENSE, C.REAR_LICENSE, C.DRIVER1, C.QNTY, C.DESTINATION_NAME, C.TAREWEIGHT, C.MAXWEIGHT, 
-                         C.VEHICLE_NAME, C.REGULATIONWEIGHT, C.FULLTANK
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        W.CARD_ID, Q.Q_ID, Q.Q_STATUS, C.ORDER_CODE, C.COMPANY, C.DATEARRIVE, C.CARRIER, C.FRONT_LICENSE, C.REAR_LICENSE, C.DRIVER1,C.QNTY, C.DESTINATION_NAME, C.TAREWEIGHT, C.MAXWEIGHT, C.VEHICLE_NAME, C.REGULATIONWEIGHT, C.FULLTANK
 FROM          T_ORDERS_CACHE C LEFT OUTER JOIN
-                         T_QUEUE Q ON C.ORDER_CODE = Q.ORDER_CODE</CommandText>
+              T_QUEUE Q ON C.ORDER_CODE = Q.ORDER_CODE LEFT OUTER JOIN
+              T_ORDERS_WEB W ON C.ORDER_CODE = W.ORDER_CODE
+WHERE Q.Q_ID=Q.Q_ID OR Q.Q_ID IS NULL</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -491,6 +492,7 @@ FROM          T_ORDERS_CACHE C LEFT OUTER JOIN
               <Mapping SourceColumn="FULLTANK" DataSetColumn="FULLTANK" />
               <Mapping SourceColumn="Q_ID" DataSetColumn="Q_ID" />
               <Mapping SourceColumn="Q_STATUS" DataSetColumn="Q_STATUS" />
+              <Mapping SourceColumn="CARD_ID" DataSetColumn="CARD_ID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -734,7 +736,7 @@ WHERE DEVICEID=:DEVICEID AND (IONAME LIKE 'DT%' OR IONAME='ET01' OR IONAME='FL01
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="T_METER_Q" msprop:Generator_TableClassName="T_METER_QDataTable" msprop:Generator_TableVarName="tableT_METER_Q" msprop:Generator_RowChangedName="T_METER_QRowChanged" msprop:Generator_TablePropName="T_METER_Q" msprop:Generator_RowDeletingName="T_METER_QRowDeleting" msprop:Generator_RowChangingName="T_METER_QRowChanging" msprop:Generator_RowEvHandlerName="T_METER_QRowChangeEventHandler" msprop:Generator_RowDeletedName="T_METER_QRowDeleted" msprop:Generator_RowClassName="T_METER_QRow" msprop:Generator_UserTableName="T_METER_Q" msprop:Generator_RowEvArgName="T_METER_QRowChangeEvent">
+        <xs:element name="T_METER_Q" msprop:Generator_TableClassName="T_METER_QDataTable" msprop:Generator_TableVarName="tableT_METER_Q" msprop:Generator_TablePropName="T_METER_Q" msprop:Generator_RowDeletingName="T_METER_QRowDeleting" msprop:Generator_RowChangingName="T_METER_QRowChanging" msprop:Generator_RowEvHandlerName="T_METER_QRowChangeEventHandler" msprop:Generator_RowDeletedName="T_METER_QRowDeleted" msprop:Generator_UserTableName="T_METER_Q" msprop:Generator_RowChangedName="T_METER_QRowChanged" msprop:Generator_RowEvArgName="T_METER_QRowChangeEvent" msprop:Generator_RowClassName="T_METER_QRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="METER_ID" msprop:Generator_ColumnVarNameInTable="columnMETER_ID" msprop:Generator_ColumnPropNameInRow="METER_ID" msprop:Generator_ColumnPropNameInTable="METER_IDColumn" msprop:Generator_UserColumnName="METER_ID" type="xs:decimal" />
@@ -840,7 +842,7 @@ WHERE DEVICEID=:DEVICEID AND (IONAME LIKE 'DT%' OR IONAME='ET01' OR IONAME='FL01
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="T_QUEUE" msprop:Generator_TableClassName="T_QUEUEDataTable" msprop:Generator_TableVarName="tableT_QUEUE" msprop:Generator_RowChangedName="T_QUEUERowChanged" msprop:Generator_TablePropName="T_QUEUE" msprop:Generator_RowDeletingName="T_QUEUERowDeleting" msprop:Generator_RowChangingName="T_QUEUERowChanging" msprop:Generator_RowEvHandlerName="T_QUEUERowChangeEventHandler" msprop:Generator_RowDeletedName="T_QUEUERowDeleted" msprop:Generator_RowClassName="T_QUEUERow" msprop:Generator_UserTableName="T_QUEUE" msprop:Generator_RowEvArgName="T_QUEUERowChangeEvent">
+        <xs:element name="T_QUEUE" msprop:Generator_TableClassName="T_QUEUEDataTable" msprop:Generator_TableVarName="tableT_QUEUE" msprop:Generator_TablePropName="T_QUEUE" msprop:Generator_RowDeletingName="T_QUEUERowDeleting" msprop:Generator_RowChangingName="T_QUEUERowChanging" msprop:Generator_RowEvHandlerName="T_QUEUERowChangeEventHandler" msprop:Generator_RowDeletedName="T_QUEUERowDeleted" msprop:Generator_UserTableName="T_QUEUE" msprop:Generator_RowChangedName="T_QUEUERowChanged" msprop:Generator_RowEvArgName="T_QUEUERowChangeEvent" msprop:Generator_RowClassName="T_QUEUERow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Q_ID" msprop:Generator_ColumnVarNameInTable="columnQ_ID" msprop:Generator_ColumnPropNameInRow="Q_ID" msprop:Generator_ColumnPropNameInTable="Q_IDColumn" msprop:Generator_UserColumnName="Q_ID" type="xs:decimal" minOccurs="0" />
@@ -985,7 +987,7 @@ WHERE DEVICEID=:DEVICEID AND (IONAME LIKE 'DT%' OR IONAME='ET01' OR IONAME='FL01
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="T_QUEUE1" msprop:Generator_TableClassName="T_QUEUE1DataTable" msprop:Generator_TableVarName="tableT_QUEUE1" msprop:Generator_RowChangedName="T_QUEUE1RowChanged" msprop:Generator_TablePropName="T_QUEUE1" msprop:Generator_RowDeletingName="T_QUEUE1RowDeleting" msprop:Generator_RowChangingName="T_QUEUE1RowChanging" msprop:Generator_RowEvHandlerName="T_QUEUE1RowChangeEventHandler" msprop:Generator_RowDeletedName="T_QUEUE1RowDeleted" msprop:Generator_RowClassName="T_QUEUE1Row" msprop:Generator_UserTableName="T_QUEUE1" msprop:Generator_RowEvArgName="T_QUEUE1RowChangeEvent">
+        <xs:element name="T_QUEUE1" msprop:Generator_TableClassName="T_QUEUE1DataTable" msprop:Generator_TableVarName="tableT_QUEUE1" msprop:Generator_TablePropName="T_QUEUE1" msprop:Generator_RowDeletingName="T_QUEUE1RowDeleting" msprop:Generator_RowChangingName="T_QUEUE1RowChanging" msprop:Generator_RowEvHandlerName="T_QUEUE1RowChangeEventHandler" msprop:Generator_RowDeletedName="T_QUEUE1RowDeleted" msprop:Generator_UserTableName="T_QUEUE1" msprop:Generator_RowChangedName="T_QUEUE1RowChanged" msprop:Generator_RowEvArgName="T_QUEUE1RowChangeEvent" msprop:Generator_RowClassName="T_QUEUE1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Q_ID" msprop:Generator_ColumnVarNameInTable="columnQ_ID" msprop:Generator_ColumnPropNameInRow="Q_ID" msprop:Generator_ColumnPropNameInTable="Q_IDColumn" msprop:Generator_UserColumnName="Q_ID" type="xs:decimal" minOccurs="0" />
@@ -1115,7 +1117,7 @@ WHERE DEVICEID=:DEVICEID AND (IONAME LIKE 'DT%' OR IONAME='ET01' OR IONAME='FL01
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="T_ORDERS_WEB" msprop:Generator_TableClassName="T_ORDERS_WEBDataTable" msprop:Generator_TableVarName="tableT_ORDERS_WEB" msprop:Generator_TablePropName="T_ORDERS_WEB" msprop:Generator_RowDeletingName="T_ORDERS_WEBRowDeleting" msprop:Generator_RowChangingName="T_ORDERS_WEBRowChanging" msprop:Generator_RowEvHandlerName="T_ORDERS_WEBRowChangeEventHandler" msprop:Generator_RowDeletedName="T_ORDERS_WEBRowDeleted" msprop:Generator_UserTableName="T_ORDERS_WEB" msprop:Generator_RowChangedName="T_ORDERS_WEBRowChanged" msprop:Generator_RowEvArgName="T_ORDERS_WEBRowChangeEvent" msprop:Generator_RowClassName="T_ORDERS_WEBRow">
+        <xs:element name="T_ORDERS_WEB" msprop:Generator_TableClassName="T_ORDERS_WEBDataTable" msprop:Generator_TableVarName="tableT_ORDERS_WEB" msprop:Generator_RowChangedName="T_ORDERS_WEBRowChanged" msprop:Generator_TablePropName="T_ORDERS_WEB" msprop:Generator_RowDeletingName="T_ORDERS_WEBRowDeleting" msprop:Generator_RowChangingName="T_ORDERS_WEBRowChanging" msprop:Generator_RowEvHandlerName="T_ORDERS_WEBRowChangeEventHandler" msprop:Generator_RowDeletedName="T_ORDERS_WEBRowDeleted" msprop:Generator_RowClassName="T_ORDERS_WEBRow" msprop:Generator_UserTableName="T_ORDERS_WEB" msprop:Generator_RowEvArgName="T_ORDERS_WEBRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ORDER_ID" msprop:Generator_ColumnVarNameInTable="columnORDER_ID" msprop:Generator_ColumnPropNameInRow="ORDER_ID" msprop:Generator_ColumnPropNameInTable="ORDER_IDColumn" msprop:Generator_UserColumnName="ORDER_ID" type="xs:decimal" />
@@ -1198,7 +1200,7 @@ WHERE DEVICEID=:DEVICEID AND (IONAME LIKE 'DT%' OR IONAME='ET01' OR IONAME='FL01
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LOADING_SQ_LOG" msprop:Generator_TableClassName="LOADING_SQ_LOGDataTable" msprop:Generator_TableVarName="tableLOADING_SQ_LOG" msprop:Generator_RowChangedName="LOADING_SQ_LOGRowChanged" msprop:Generator_TablePropName="LOADING_SQ_LOG" msprop:Generator_RowDeletingName="LOADING_SQ_LOGRowDeleting" msprop:Generator_RowChangingName="LOADING_SQ_LOGRowChanging" msprop:Generator_RowEvHandlerName="LOADING_SQ_LOGRowChangeEventHandler" msprop:Generator_RowDeletedName="LOADING_SQ_LOGRowDeleted" msprop:Generator_RowClassName="LOADING_SQ_LOGRow" msprop:Generator_UserTableName="LOADING_SQ_LOG" msprop:Generator_RowEvArgName="LOADING_SQ_LOGRowChangeEvent">
+        <xs:element name="LOADING_SQ_LOG" msprop:Generator_TableClassName="LOADING_SQ_LOGDataTable" msprop:Generator_TableVarName="tableLOADING_SQ_LOG" msprop:Generator_TablePropName="LOADING_SQ_LOG" msprop:Generator_RowDeletingName="LOADING_SQ_LOGRowDeleting" msprop:Generator_RowChangingName="LOADING_SQ_LOGRowChanging" msprop:Generator_RowEvHandlerName="LOADING_SQ_LOGRowChangeEventHandler" msprop:Generator_RowDeletedName="LOADING_SQ_LOGRowDeleted" msprop:Generator_UserTableName="LOADING_SQ_LOG" msprop:Generator_RowChangedName="LOADING_SQ_LOGRowChanged" msprop:Generator_RowEvArgName="LOADING_SQ_LOGRowChangeEvent" msprop:Generator_RowClassName="LOADING_SQ_LOGRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LOGTIME" msprop:Generator_ColumnVarNameInTable="columnLOGTIME" msprop:Generator_ColumnPropNameInRow="LOGTIME" msprop:Generator_ColumnPropNameInTable="LOGTIMEColumn" msprop:Generator_UserColumnName="LOGTIME" type="xs:dateTime" minOccurs="0" />
@@ -1220,10 +1222,10 @@ WHERE DEVICEID=:DEVICEID AND (IONAME LIKE 'DT%' OR IONAME='ET01' OR IONAME='FL01
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="T_ORDERS_CACHE" msprop:Generator_TableClassName="T_ORDERS_CACHEDataTable" msprop:Generator_TableVarName="tableT_ORDERS_CACHE" msprop:Generator_RowChangedName="T_ORDERS_CACHERowChanged" msprop:Generator_TablePropName="T_ORDERS_CACHE" msprop:Generator_RowDeletingName="T_ORDERS_CACHERowDeleting" msprop:Generator_RowChangingName="T_ORDERS_CACHERowChanging" msprop:Generator_RowEvHandlerName="T_ORDERS_CACHERowChangeEventHandler" msprop:Generator_RowDeletedName="T_ORDERS_CACHERowDeleted" msprop:Generator_RowClassName="T_ORDERS_CACHERow" msprop:Generator_UserTableName="T_ORDERS_CACHE" msprop:Generator_RowEvArgName="T_ORDERS_CACHERowChangeEvent">
+        <xs:element name="T_ORDERS_CACHE" msprop:Generator_TableClassName="T_ORDERS_CACHEDataTable" msprop:Generator_TableVarName="tableT_ORDERS_CACHE" msprop:Generator_TablePropName="T_ORDERS_CACHE" msprop:Generator_RowDeletingName="T_ORDERS_CACHERowDeleting" msprop:Generator_RowChangingName="T_ORDERS_CACHERowChanging" msprop:Generator_RowEvHandlerName="T_ORDERS_CACHERowChangeEventHandler" msprop:Generator_RowDeletedName="T_ORDERS_CACHERowDeleted" msprop:Generator_UserTableName="T_ORDERS_CACHE" msprop:Generator_RowChangedName="T_ORDERS_CACHERowChanged" msprop:Generator_RowEvArgName="T_ORDERS_CACHERowChangeEvent" msprop:Generator_RowClassName="T_ORDERS_CACHERow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ORDER_CODE" msprop:Generator_ColumnVarNameInTable="columnORDER_CODE" msprop:Generator_ColumnPropNameInRow="ORDER_CODE" msprop:Generator_ColumnPropNameInTable="ORDER_CODEColumn" msprop:Generator_UserColumnName="ORDER_CODE">
+              <xs:element name="ORDER_CODE" msprop:Generator_ColumnVarNameInTable="columnORDER_CODE" msprop:Generator_ColumnPropNameInRow="ORDER_CODE" msprop:Generator_ColumnPropNameInTable="ORDER_CODEColumn" msprop:Generator_UserColumnName="ORDER_CODE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
@@ -1299,6 +1301,7 @@ WHERE DEVICEID=:DEVICEID AND (IONAME LIKE 'DT%' OR IONAME='ET01' OR IONAME='FL01
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="CARD_ID" msprop:Generator_ColumnVarNameInTable="columnCARD_ID" msprop:Generator_ColumnPropNameInRow="CARD_ID" msprop:Generator_ColumnPropNameInTable="CARD_IDColumn" msprop:Generator_UserColumnName="CARD_ID" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

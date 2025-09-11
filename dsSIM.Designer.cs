@@ -5178,6 +5178,8 @@ namespace TASQSim {
             
             private global::System.Data.DataColumn columnQ_STATUS;
             
+            private global::System.Data.DataColumn columnCARD_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public T_ORDERS_CACHEDataTable() {
@@ -5341,6 +5343,14 @@ namespace TASQSim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CARD_IDColumn {
+                get {
+                    return this.columnCARD_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5392,7 +5402,8 @@ namespace TASQSim {
                         decimal REGULATIONWEIGHT, 
                         string FULLTANK, 
                         decimal Q_ID, 
-                        string Q_STATUS) {
+                        string Q_STATUS, 
+                        decimal CARD_ID) {
                 T_ORDERS_CACHERow rowT_ORDERS_CACHERow = ((T_ORDERS_CACHERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ORDER_CODE,
@@ -5410,7 +5421,8 @@ namespace TASQSim {
                         REGULATIONWEIGHT,
                         FULLTANK,
                         Q_ID,
-                        Q_STATUS};
+                        Q_STATUS,
+                        CARD_ID};
                 rowT_ORDERS_CACHERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowT_ORDERS_CACHERow);
                 return rowT_ORDERS_CACHERow;
@@ -5456,6 +5468,7 @@ namespace TASQSim {
                 this.columnFULLTANK = base.Columns["FULLTANK"];
                 this.columnQ_ID = base.Columns["Q_ID"];
                 this.columnQ_STATUS = base.Columns["Q_STATUS"];
+                this.columnCARD_ID = base.Columns["CARD_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5493,6 +5506,8 @@ namespace TASQSim {
                 base.Columns.Add(this.columnQ_ID);
                 this.columnQ_STATUS = new global::System.Data.DataColumn("Q_STATUS", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQ_STATUS);
+                this.columnCARD_ID = new global::System.Data.DataColumn("CARD_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCARD_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnORDER_CODE}, true));
                 this.columnORDER_CODE.AllowDBNull = false;
@@ -9455,6 +9470,22 @@ namespace TASQSim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal CARD_ID {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableT_ORDERS_CACHE.CARD_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CARD_ID\' in table \'T_ORDERS_CACHE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableT_ORDERS_CACHE.CARD_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCOMPANYNull() {
                 return this.IsNull(this.tableT_ORDERS_CACHE.COMPANYColumn);
             }
@@ -9631,6 +9662,18 @@ namespace TASQSim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetQ_STATUSNull() {
                 this[this.tableT_ORDERS_CACHE.Q_STATUSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCARD_IDNull() {
+                return this.IsNull(this.tableT_ORDERS_CACHE.CARD_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCARD_IDNull() {
+                this[this.tableT_ORDERS_CACHE.CARD_IDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -12071,6 +12114,7 @@ WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
             tableMapping.ColumnMappings.Add("FULLTANK", "FULLTANK");
             tableMapping.ColumnMappings.Add("Q_ID", "Q_ID");
             tableMapping.ColumnMappings.Add("Q_STATUS", "Q_STATUS");
+            tableMapping.ColumnMappings.Add("CARD_ID", "CARD_ID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12087,10 +12131,11 @@ WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
             this._commandCollection = new global::System.Data.OracleClient.OracleCommand[1];
             this._commandCollection[0] = new global::System.Data.OracleClient.OracleCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Q.Q_ID, Q.Q_STATUS, C.ORDER_CODE, C.COMPANY, C.DATEARRIVE, C.CARRIER, C.FRONT_LICENSE, C.REAR_LICENSE, C.DRIVER1, C.QNTY, C.DESTINATION_NAME, C.TAREWEIGHT, C.MAXWEIGHT, 
-                         C.VEHICLE_NAME, C.REGULATIONWEIGHT, C.FULLTANK
+            this._commandCollection[0].CommandText = @"SELECT        W.CARD_ID, Q.Q_ID, Q.Q_STATUS, C.ORDER_CODE, C.COMPANY, C.DATEARRIVE, C.CARRIER, C.FRONT_LICENSE, C.REAR_LICENSE, C.DRIVER1,C.QNTY, C.DESTINATION_NAME, C.TAREWEIGHT, C.MAXWEIGHT, C.VEHICLE_NAME, C.REGULATIONWEIGHT, C.FULLTANK
 FROM          T_ORDERS_CACHE C LEFT OUTER JOIN
-                         T_QUEUE Q ON C.ORDER_CODE = Q.ORDER_CODE";
+              T_QUEUE Q ON C.ORDER_CODE = Q.ORDER_CODE LEFT OUTER JOIN
+              T_ORDERS_WEB W ON C.ORDER_CODE = W.ORDER_CODE
+WHERE Q.Q_ID=Q.Q_ID OR Q.Q_ID IS NULL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
