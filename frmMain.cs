@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OracleClient;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace TASQSim
@@ -30,18 +26,17 @@ namespace TASQSim
         {
             InitializeComponent();
             this.SQSTEP = new decimal[5];
+            this.tstIOFilter.Text = "logtxt like '%:DT%'";
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsSim.T_ORDERS_CACHE' table. You can move, or remove it, as needed.
-            this.taORDERSCACHE.Fill(this.dsSim.T_ORDERS_CACHE);
-            // TODO: This line of code loads data into the 'dsSim.T_ORDERS_WEB' table. You can move, or remove it, as needed.
             this.bAYIDToolStripTextBox.Text = "1";
             this.bAYIDToolStripTextBox.Focus();
             this.taQUEUE1.Fill(this.dsSim.T_QUEUE1);
             this.taMETER_Q.FillAll(this.dsSim.T_METER_Q);
             iBayMax = (int)this.dsSim.T_METER_Q.Count;
+            this.taORDERSCACHE.Fill(this.dsSim.T_ORDERS_CACHE);
             RefreshLoadSQ();
             RefreshIO();
             RefreshTab();
@@ -128,16 +123,40 @@ namespace TASQSim
             if (this.tsSQ.Checked) RefreshLoadSQ();
             if (this.tsIO.Checked) RefreshIO();
             if (this.tsLog.Checked) RefreshTab();
+            if (!this.tbStatus.Text.Equals("LOADING")) this.chk500LPM.Checked = false;
             if (!this.tbStatus.Text.Equals("LOADING")) this.chk1KLPM.Checked = false;
             if (!this.tbStatus.Text.Equals("LOADING")) this.chk2KLPM.Checked = false;
-            if (this.chk1KLPM.Checked) IncIOVal(ION_WGH, 35);
-            if (this.chk2KLPM.Checked) IncIOVal(ION_WGH, 69);
+            if(this.chk500LPM.Checked || this.chk1KLPM.Checked || this.chk2KLPM.Checked)
+            {
+                int wt = 0; //tare wgh
+                int wm = 0; //max load
+                int wr = 0; //reg wgh
+                int wgm = 0; //gross max wgh
+                if (tbTareW.Text.Length > 0) wt = int.Parse(tbTareW.Text);
+                if (tbMaxW.Text.Length > 0) wm = int.Parse(tbMaxW.Text);
+                if (tbRegW.Text.Length > 0) wr = int.Parse(tbRegW.Text);
+                wgm = wt + wm;
+                if (wgm == 0) wgm = wr;
+                if (wr == 0) wr = wgm;
+                if((wgm+wr)>0)
+                {
+                    if (this.chk500LPM.Checked) IncIOVal(ION_WGH, 18, wgm, wr);
+                    if (this.chk1KLPM.Checked) IncIOVal(ION_WGH, 35, wgm, wr);
+                    if (this.chk2KLPM.Checked) IncIOVal(ION_WGH, 69, wgm, wr);
+                }
+                else
+                {
+                    if (this.chk500LPM.Checked) IncIOVal(ION_WGH, 17);
+                    if (this.chk1KLPM.Checked) IncIOVal(ION_WGH, 35);
+                    if (this.chk2KLPM.Checked) IncIOVal(ION_WGH, 69);
+                }
+            }
             if (this.SQSTEP[(int)BAYID] == 0)
                 wait = 0;
             else
             {
                 wait++;
-                if (wait > 3)
+                if (wait > 2)
                     switch (this.SQSTEP[(int)BAYID])
                     {
                         case 1:
@@ -186,6 +205,7 @@ namespace TASQSim
                                 SetIOR("1", this.MTRDEVID, "FL01");
                                 RefreshIOR();
                                 SetStep(0,btn);
+                                RefreshLoadSQ();
                             }
                             break;
                         case 4:
@@ -202,6 +222,7 @@ namespace TASQSim
                                 SetIOR("1", this.MTRDEVID, "FL01");
                                 RefreshIOR();
                                 SetStep(0,btn);
+                                RefreshLoadSQ();
                             }
                             break;
                         case 5:
@@ -217,7 +238,8 @@ namespace TASQSim
                                 SyncIO();
                                 SetIOR("1", this.MTRDEVID, "FL01");
                                 RefreshIOR();
-                                SetStep(0,btn);
+                                SetStep(0, btn);
+                                RefreshLoadSQ();
                             }
                             break;
                         case 7:
@@ -239,22 +261,9 @@ namespace TASQSim
                     }
             }
         }
-
-        private void tstIOFilter_TextChanged(object sender, EventArgs e)
-        {
-            this.bsDEVICEIO_R.RemoveFilter();
-        }
-
-        private void tstIOFilter_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return)
-            {
-                this.bsDEVICEIO_R.Filter = this.tstIOFilter.Text;
-            }
-        }
-
         private void dgvDevIO_W_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            this.tsIO.Checked = false;
             if (this.bsDEVICEIO_W.Current != null)
             {
                 dsSIM.DEVICEIO_WRow drow = (dsSIM.DEVICEIO_WRow)(((DataRowView)(this.bsDEVICEIO_W.Current)).Row);
@@ -295,9 +304,28 @@ namespace TASQSim
         private void bAYIDToolStripTextBox_Click(object sender, EventArgs e)
         {
             int iNextBay = int.Parse(this.bAYIDToolStripTextBox.Text) + 1;
-            this.bAYIDToolStripTextBox.Text = ((iNextBay > iBayMax) ? 1 : iNextBay).ToString();
+            SetBay(((iNextBay > iBayMax) ? 1 : iNextBay).ToString());
+        }
+        private void dgwMeterQAll_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.tsSQ.Checked = false;
+            if (this.bsMeterQAll.Current != null)
+            {
+                dsSIM.T_METER_QRow drow = (dsSIM.T_METER_QRow)(((DataRowView)(this.bsMeterQAll.Current)).Row);
+                if (drow != null)
+                {
+                    decimal dtmp = drow.METER_ID;
+                    SetBay(dtmp.ToString());
+                }
+            }
+        }
+        private void SetBay(string BayID)
+        {
+            this.bAYIDToolStripTextBox.Text = BayID;
+            this.Text = $"[BAY {BayID}] TAS Simulator";
             try
             {
+                this.chk500LPM.Checked = false;
                 this.chk1KLPM.Checked = false;
                 this.chk2KLPM.Checked = false;
                 RefreshLoadSQ();
@@ -309,7 +337,6 @@ namespace TASQSim
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
-
         private void tstbLogHrs_Click(object sender, EventArgs e)
         {
             if (this.tstbLogHrs.Text == "144")
@@ -469,6 +496,15 @@ namespace TASQSim
             string stmp = left((dc1 + IncValue).ToString(), 9);
             SetIOR(stmp, this.MTRDEVID, IONAME);
         }
+        private void IncIOVal(string IONAME, decimal? IncValue,decimal? Max1,decimal? Max2)
+        {
+            decimal? dc1 = sim_ta.ReadIOR(IONAME, this.MTRDEVID, this.MTRDEVID)+IncValue;
+            if(dc1<Max1 && dc1<Max2)
+            { 
+                string stmp = left(dc1.ToString(), 9);
+                SetIOR(stmp, this.MTRDEVID, IONAME);
+            }
+        }
 
         private string left(string sIn, int iLen)
         {
@@ -496,24 +532,14 @@ namespace TASQSim
 
         private void btnRst_Click(object sender, EventArgs e)
         {
-            SetIOR("0", this.MTRDEVID, ION_WS);
             sim_ta.BayInit(this.MTRDEVID);
             sim_ta.SyncIO_ClearReq(this.MTRDEVID);
             this.SetStep(0, (Button)sender);
-            SetIOR("0", this.MTRDEVID, "ET01");
         }
 
         private void btnL1000_Click(object sender, EventArgs e)
         {
             SimLoadProg(1000);
-        }
-
-        private void btnS0_Click(object sender, EventArgs e)
-        {
-            sim_ta.BayInit(this.MTRDEVID);
-            sim_ta.SyncIO_ClearReq(this.MTRDEVID);
-            this.SetStep(0, (Button)sender);
-            SetIOR("0", this.MTRDEVID, "ET01");
         }
 
         private void btnS1_Click(object sender, EventArgs e)// Card In
@@ -525,11 +551,11 @@ namespace TASQSim
             }
             else
             { 
-                System.Windows.Forms.MessageBox.Show("Tare W. and Card In again after initialized");
+                System.Windows.Forms.MessageBox.Show("Card In again after initialized");
                 sim_ta.BayInit(this.MTRDEVID);
                 sim_ta.SyncIO_ClearReq(this.MTRDEVID);
-                this.SetStep(0, btnS0);
-                SetIOR("0", this.MTRDEVID, "ET01");
+                this.SetStep(0, (Button)sender);
+                if (this.tbTareW.Text.Trim().Length > 3) SetIOR(this.tbTareW.Text, this.MTRDEVID, ION_WS);
             }
         }
 
@@ -545,8 +571,6 @@ namespace TASQSim
 
         private void btnS4_Click(object sender, EventArgs e)// B.End
         {
-
-            SetIOR(cARD_TAGIDTextBox.Text, this.MTRDEVID, ION_RES);
             this.SetStep(4, (Button)sender);
         }
 
@@ -583,41 +607,15 @@ namespace TASQSim
             RefreshIO();
         }
 
-        private void dgwMeterQAll_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (this.bsMeterQAll.Current != null)
-            {
-                dsSIM.T_METER_QRow drow = (dsSIM.T_METER_QRow)(((DataRowView)(this.bsMeterQAll.Current)).Row);
-                if (drow != null)
-                {
-                    decimal dtmp = drow.METER_ID;
-                    this.bAYIDToolStripTextBox.Text = dtmp.ToString();
-                    try
-                    {
-                        RefreshLoadSQ();
-                        this.chk1KLPM.Checked = false;
-                        this.chk2KLPM.Checked = false;
-                        RefreshIO();
-                        RefreshTab();
-                    }
-                    catch (System.Exception ex)
-                    {
-                        System.Windows.Forms.MessageBox.Show(ex.Message);
-                    }
-                }
-            }
-        }
-
         private void btnSTare_Click(object sender, EventArgs e)
         {
             if (sim_ta.ReadIOR("ET01", this.MTRDEVID, this.MTRDEVID) > 0)
             { 
                 sim_ta.BayInit(this.MTRDEVID);
                 sim_ta.SyncIO_ClearReq(this.MTRDEVID);
-                this.SetStep(0, btnS0);
-                SetIOR("0", this.MTRDEVID, "ET01");
+                this.SetStep(0, (Button)sender);
             }
-            if (this.textBox2.Text.Trim().Length > 3) SetIOR(this.textBox2.Text, this.MTRDEVID, ION_WS);
+            if (this.tbTareW.Text.Trim().Length > 3) SetIOR(this.tbTareW.Text, this.MTRDEVID, ION_WS);
         }
 
         private void btnSwMain_Click(object sender, EventArgs e)
@@ -663,12 +661,42 @@ namespace TASQSim
 
         private void chk1KLPM_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.chk1KLPM.Checked) this.chk2KLPM.Checked = false;
+            if (this.chk1KLPM.Checked) { this.chk2KLPM.Checked = false; this.chk500LPM.Checked = false; }
         }
 
         private void chk2KLPM_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.chk2KLPM.Checked) this.chk1KLPM.Checked = false;
+            if (this.chk2KLPM.Checked) {this.chk1KLPM.Checked = false; this.chk500LPM.Checked = false; }
+        }
+
+        private void chk500LPM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chk500LPM.Checked) {this.chk1KLPM.Checked = false; this.chk2KLPM.Checked = false; }
+        }
+
+        private void tstIOFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(Convert.ToInt32(e.KeyChar) == 13)
+            {
+                if (this.tabBottom.SelectedIndex == 5)
+                {
+                    try
+                    {
+                        this.bsIOLog2.Filter = this.tstIOFilter.Text;
+                    }
+                    catch (Exception)
+                    {
+                        System.Windows.Forms.MessageBox.Show("IO Filter Text is invalid");
+                        this.bsIOLog2.Filter = "";
+                    }
+                    
+                }
+            }
+        }
+
+        private void tstIOFilter_Click(object sender, EventArgs e)
+        {
+            this.bsIOLog2.RemoveFilter();
         }
     }
 }

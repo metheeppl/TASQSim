@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.ico" />
+    <None Include="Resources\1.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

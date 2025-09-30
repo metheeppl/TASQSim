@@ -11680,99 +11680,6 @@ ORDER BY Q_ID";
             tableMapping.ColumnMappings.Add("CALCQUANTITY", "CALCQUANTITY");
             tableMapping.ColumnMappings.Add("Q_ID", "Q_ID");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OracleClient.OracleCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"T_ORDERS_WEB\" WHERE ((\"ORDER_ID\" = :Original_ORDER_ID) AND ((:IsNull" +
-                "_ORDER_CODE = 1 AND \"ORDER_CODE\" IS NULL) OR (\"ORDER_CODE\" = :Original_ORDER_COD" +
-                "E)) AND ((:IsNull_COMPANY = 1 AND \"COMPANY\" IS NULL) OR (\"COMPANY\" = :Original_C" +
-                "OMPANY)) AND ((:IsNull_DATEARRIVE = 1 AND \"DATEARRIVE\" IS NULL) OR (\"DATEARRIVE\"" +
-                " = :Original_DATEARRIVE)) AND ((:IsNull_CARRIER = 1 AND \"CARRIER\" IS NULL) OR (\"" +
-                "CARRIER\" = :Original_CARRIER)) AND ((:IsNull_FRONT_LICENSE = 1 AND \"FRONT_LICENS" +
-                "E\" IS NULL) OR (\"FRONT_LICENSE\" = :Original_FRONT_LICENSE)) AND ((:IsNull_REAR_L" +
-                "ICENSE = 1 AND \"REAR_LICENSE\" IS NULL) OR (\"REAR_LICENSE\" = :Original_REAR_LICEN" +
-                "SE)) AND ((:IsNull_PRODUCT = 1 AND \"PRODUCT\" IS NULL) OR (\"PRODUCT\" = :Original_" +
-                "PRODUCT)) AND ((:IsNull_QNTY = 1 AND \"QNTY\" IS NULL) OR (\"QNTY\" = :Original_QNTY" +
-                ")) AND ((:IsNull_STDTAREWEIGHT = 1 AND \"STDTAREWEIGHT\" IS NULL) OR (\"STDTAREWEIG" +
-                "HT\" = :Original_STDTAREWEIGHT)) AND ((:IsNull_MAXWEIGHT = 1 AND \"MAXWEIGHT\" IS N" +
-                "ULL) OR (\"MAXWEIGHT\" = :Original_MAXWEIGHT)) AND ((:IsNull_ALLOWQTY = 1 AND \"ALL" +
-                "OWQTY\" IS NULL) OR (\"ALLOWQTY\" = :Original_ALLOWQTY)) AND ((:IsNull_METER_ID = 1" +
-                " AND \"METER_ID\" IS NULL) OR (\"METER_ID\" = :Original_METER_ID)) AND ((:IsNull_CAR" +
-                "D_ID = 1 AND \"CARD_ID\" IS NULL) OR (\"CARD_ID\" = :Original_CARD_ID)) AND ((:IsNul" +
-                "l_STATUS = 1 AND \"STATUS\" IS NULL) OR (\"STATUS\" = :Original_STATUS)) AND ((:IsNu" +
-                "ll_ORDER_NO = 1 AND \"ORDER_NO\" IS NULL) OR (\"ORDER_NO\" = :Original_ORDER_NO)) AN" +
-                "D ((:IsNull_GROSS = 1 AND \"GROSS\" IS NULL) OR (\"GROSS\" = :Original_GROSS)) AND (" +
-                "(:IsNull_NET = 1 AND \"NET\" IS NULL) OR (\"NET\" = :Original_NET)) AND ((:IsNull_LO" +
-                "ADED = 1 AND \"LOADED\" IS NULL) OR (\"LOADED\" = :Original_LOADED)) AND ((:IsNull_T" +
-                "ARE = 1 AND \"TARE\" IS NULL) OR (\"TARE\" = :Original_TARE)) AND ((:IsNull_TS_TARE " +
-                "= 1 AND \"TS_TARE\" IS NULL) OR (\"TS_TARE\" = :Original_TS_TARE)) AND ((:IsNull_TS_" +
-                "BSTART = 1 AND \"TS_BSTART\" IS NULL) OR (\"TS_BSTART\" = :Original_TS_BSTART)) AND " +
-                "((:IsNull_TS_BEND = 1 AND \"TS_BEND\" IS NULL) OR (\"TS_BEND\" = :Original_TS_BEND))" +
-                " AND ((:IsNull_TS_FINISH = 1 AND \"TS_FINISH\" IS NULL) OR (\"TS_FINISH\" = :Origina" +
-                "l_TS_FINISH)) AND ((:IsNull_TS_BOL = 1 AND \"TS_BOL\" IS NULL) OR (\"TS_BOL\" = :Ori" +
-                "ginal_TS_BOL)) AND ((:IsNull_REGULATIONWEIGHT = 1 AND \"REGULATIONWEIGHT\" IS NULL" +
-                ") OR (\"REGULATIONWEIGHT\" = :Original_REGULATIONWEIGHT)) AND ((:IsNull_WEIGHTSCAL" +
-                "E = 1 AND \"WEIGHTSCALE\" IS NULL) OR (\"WEIGHTSCALE\" = :Original_WEIGHTSCALE)) AND" +
-                " ((:IsNull_CALCQUANTITY = 1 AND \"CALCQUANTITY\" IS NULL) OR (\"CALCQUANTITY\" = :Or" +
-                "iginal_CALCQUANTITY)) AND ((:IsNull_Q_ID = 1 AND \"Q_ID\" IS NULL) OR (\"Q_ID\" = :O" +
-                "riginal_Q_ID)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_ORDER_ID", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "ORDER_ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_ORDER_CODE", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "ORDER_CODE", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_ORDER_CODE", global::System.Data.OracleClient.OracleType.VarChar, 0, global::System.Data.ParameterDirection.Input, "ORDER_CODE", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_COMPANY", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "COMPANY", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_COMPANY", global::System.Data.OracleClient.OracleType.VarChar, 0, global::System.Data.ParameterDirection.Input, "COMPANY", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_DATEARRIVE", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "DATEARRIVE", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_DATEARRIVE", global::System.Data.OracleClient.OracleType.DateTime, 0, global::System.Data.ParameterDirection.Input, "DATEARRIVE", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_CARRIER", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "CARRIER", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_CARRIER", global::System.Data.OracleClient.OracleType.NVarChar, 0, global::System.Data.ParameterDirection.Input, "CARRIER", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_FRONT_LICENSE", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "FRONT_LICENSE", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_FRONT_LICENSE", global::System.Data.OracleClient.OracleType.NVarChar, 0, global::System.Data.ParameterDirection.Input, "FRONT_LICENSE", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_REAR_LICENSE", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "REAR_LICENSE", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_REAR_LICENSE", global::System.Data.OracleClient.OracleType.NVarChar, 0, global::System.Data.ParameterDirection.Input, "REAR_LICENSE", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_PRODUCT", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "PRODUCT", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_PRODUCT", global::System.Data.OracleClient.OracleType.VarChar, 0, global::System.Data.ParameterDirection.Input, "PRODUCT", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_QNTY", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "QNTY", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_QNTY", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "QNTY", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_STDTAREWEIGHT", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "STDTAREWEIGHT", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_STDTAREWEIGHT", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "STDTAREWEIGHT", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_MAXWEIGHT", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "MAXWEIGHT", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_MAXWEIGHT", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "MAXWEIGHT", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_ALLOWQTY", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "ALLOWQTY", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_ALLOWQTY", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "ALLOWQTY", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_METER_ID", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "METER_ID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_METER_ID", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "METER_ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_CARD_ID", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "CARD_ID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_CARD_ID", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "CARD_ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_STATUS", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "STATUS", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_STATUS", global::System.Data.OracleClient.OracleType.VarChar, 0, global::System.Data.ParameterDirection.Input, "STATUS", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_ORDER_NO", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "ORDER_NO", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_ORDER_NO", global::System.Data.OracleClient.OracleType.VarChar, 0, global::System.Data.ParameterDirection.Input, "ORDER_NO", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_GROSS", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "GROSS", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_GROSS", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "GROSS", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_NET", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "NET", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_NET", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "NET", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_LOADED", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "LOADED", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_LOADED", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "LOADED", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_TARE", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "TARE", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_TARE", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "TARE", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_TS_TARE", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "TS_TARE", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_TS_TARE", global::System.Data.OracleClient.OracleType.DateTime, 0, global::System.Data.ParameterDirection.Input, "TS_TARE", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_TS_BSTART", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "TS_BSTART", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_TS_BSTART", global::System.Data.OracleClient.OracleType.DateTime, 0, global::System.Data.ParameterDirection.Input, "TS_BSTART", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_TS_BEND", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "TS_BEND", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_TS_BEND", global::System.Data.OracleClient.OracleType.DateTime, 0, global::System.Data.ParameterDirection.Input, "TS_BEND", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_TS_FINISH", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "TS_FINISH", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_TS_FINISH", global::System.Data.OracleClient.OracleType.DateTime, 0, global::System.Data.ParameterDirection.Input, "TS_FINISH", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_TS_BOL", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "TS_BOL", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_TS_BOL", global::System.Data.OracleClient.OracleType.DateTime, 0, global::System.Data.ParameterDirection.Input, "TS_BOL", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_REGULATIONWEIGHT", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "REGULATIONWEIGHT", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_REGULATIONWEIGHT", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "REGULATIONWEIGHT", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_WEIGHTSCALE", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "WEIGHTSCALE", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_WEIGHTSCALE", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "WEIGHTSCALE", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_CALCQUANTITY", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "CALCQUANTITY", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_CALCQUANTITY", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "CALCQUANTITY", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("IsNull_Q_ID", global::System.Data.OracleClient.OracleType.Int32, 0, global::System.Data.ParameterDirection.Input, "Q_ID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OracleClient.OracleParameter("Original_Q_ID", global::System.Data.OracleClient.OracleType.Number, 0, global::System.Data.ParameterDirection.Input, "Q_ID", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11791,7 +11698,8 @@ ORDER BY Q_ID";
             this._commandCollection[0].CommandText = @"SELECT        ORDER_ID, ORDER_CODE, COMPANY, DATEARRIVE, CARRIER, FRONT_LICENSE, REAR_LICENSE, PRODUCT, QNTY, STDTAREWEIGHT, MAXWEIGHT, ALLOWQTY, METER_ID, CARD_ID, STATUS, ORDER_NO, GROSS, NET, 
                          LOADED, TARE, TS_TARE, TS_BSTART, TS_BEND, TS_FINISH, TS_BOL, REGULATIONWEIGHT, WEIGHTSCALE, CALCQUANTITY, Q_ID
 FROM            T_ORDERS_WEB
-WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
+WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))
+ORDER BY DATEARRIVE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -11817,35 +11725,6 @@ WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
             dsSIM.T_ORDERS_WEBDataTable dataTable = new dsSIM.T_ORDERS_WEBDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsSIM.T_ORDERS_WEBDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsSIM dataSet) {
-            return this.Adapter.Update(dataSet, "T_ORDERS_WEB");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
         }
     }
     
@@ -12135,7 +12014,7 @@ WHERE        (trunc(DATEARRIVE) = trunc(CURRENT_DATE))";
 FROM          T_ORDERS_CACHE C LEFT OUTER JOIN
               T_QUEUE Q ON C.ORDER_CODE = Q.ORDER_CODE LEFT OUTER JOIN
               T_ORDERS_WEB W ON C.ORDER_CODE = W.ORDER_CODE
-WHERE Q.Q_ID=Q.Q_ID OR Q.Q_ID IS NULL";
+WHERE Q.Q_ID=Q.Q_ID OR Q.Q_ID IS NULL ORDER BY C.DATEARRIVE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12260,8 +12139,9 @@ FROM         DUAL";
             ((global::System.Data.OracleClient.OracleCommand)(this._commandCollection[7])).Parameters.Add(new global::System.Data.OracleClient.OracleParameter("DEVICEID", global::System.Data.OracleClient.OracleType.Number, 22, global::System.Data.ParameterDirection.Input, "DEVICEID", global::System.Data.DataRowVersion.Original, false, null));
             this._commandCollection[8] = new global::System.Data.OracleClient.OracleCommand();
             ((global::System.Data.OracleClient.OracleCommand)(this._commandCollection[8])).Connection = new global::System.Data.OracleClient.OracleConnection(global::TASQSim.Properties.Settings.Default.ConnectionString);
-            ((global::System.Data.OracleClient.OracleCommand)(this._commandCollection[8])).CommandText = "UPDATE DEVICEIO_R\r\nSET IOVALUE = 0 \r\nWHERE DEVICEID=:DEVICEID AND (IONAME LIKE \'D" +
-                "T%\' OR IONAME=\'ET01\' OR IONAME=\'FL01\')";
+            ((global::System.Data.OracleClient.OracleCommand)(this._commandCollection[8])).CommandText = "UPDATE       DEVICEIO_R\r\nSET                IOVALUE = 0\r\nWHERE        (DEVICEID =" +
+                " :DEVICEID OR\r\n                         DEVICEID = :DEVICEID + 1) AND (IONAME LI" +
+                "KE \'DT%\' OR\r\n                         IONAME IN (\'ET01\', \'FL01\', \'WGH\'))";
             ((global::System.Data.OracleClient.OracleCommand)(this._commandCollection[8])).CommandType = global::System.Data.CommandType.Text;
             ((global::System.Data.OracleClient.OracleCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.OracleClient.OracleParameter("DEVICEID", global::System.Data.OracleClient.OracleType.Number, 22, global::System.Data.ParameterDirection.Input, "DEVICEID", global::System.Data.DataRowVersion.Original, false, null));
         }
@@ -12528,7 +12408,6 @@ FROM         DUAL";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int BayInit(decimal DEVICEID) {
             global::System.Data.OracleClient.OracleCommand command = ((global::System.Data.OracleClient.OracleCommand)(this.CommandCollection[8]));
             command.Parameters[0].Value = ((decimal)(DEVICEID));
